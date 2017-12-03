@@ -3,7 +3,7 @@
 *
 * Version information v0.1
 * Authors: <Insert group member names and IDs> of student(s) who write each class
-* Date: 24/11/2017
+* Date: 03/12/2017
 * Description: header file for GameCharacter class
 * Copyright notice
 */
@@ -53,5 +53,8 @@ public:
 
 	//Functions
 	virtual bool Attack(GameCharacter &character);
+
+	//Random number generator
+	virtual int GetRandomNumber(int min, int max);
 };
 
