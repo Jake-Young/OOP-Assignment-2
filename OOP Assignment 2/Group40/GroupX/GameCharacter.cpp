@@ -3,13 +3,13 @@
 *
 * Version information v0.1
 * Authors: <Insert group member names and IDs> of student(s) who write each class
-* Date: 24/11/2017
+* Date: 03/12/2017
 * Description: Implementation for GameCharacter class
 * Copyright notice
 */
 
 #include "GameCharacter.h"
-#include "RandomNumberGenerator.h"
+#include <random>
 
 
 GameCharacter::GameCharacter(){
@@ -28,10 +28,7 @@ bool GameCharacter::Attack(GameCharacter & character)
 		//can attack
 
 		//get a random number between 0 and 100 to represent the chances of a successful attack
-		RandomNumberGenerator* rng{ new RandomNumberGenerator{} };
-		int attackChance = rng->GetRandomNumber(0, 100);
-		delete rng; //free memory
-		rng = nullptr;
+		int attackChance = GetRandomNumber(0, 100);
 		int successChance = 0; //chances of the attack being successful
 
 		/*if hit strength of the weapon used by attacker is < defence value 
@@ -75,4 +72,13 @@ bool GameCharacter::Attack(GameCharacter & character)
 		//cannot attack
 		return false;
 	}
+}
+
+int GameCharacter::GetRandomNumber(int min, int max)
+{
+	//random number generator
+	std::random_device rDev{};
+	std::default_random_engine e{ rDev() };
+	std::uniform_int_distribution<int> d{ min, max };
+	return d(e);
 }

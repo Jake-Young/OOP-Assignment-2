@@ -1,11 +1,10 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.1
-Updated 29/11/2017
+Version 1.2
+Updated 03/12/2017
 */
 
 #include "BlackWitch.h"
-#include "RandomNumberGenerator.h"
 
 
 BlackWitch::BlackWitch()
@@ -54,10 +53,7 @@ void BlackWitch::Bewitch(GameCharacter & character)
 	else
 	{
 		//random chance of bewitch succeeding
-		RandomNumberGenerator* rng{ new RandomNumberGenerator{} };
-		int randomChance = rng->GetRandomNumber(0, 100);
-		delete rng; //free memory
-		rng = nullptr;
+		int randomChance = GetRandomNumber(0, 100);
 
 		if (randomChance <= successChance)
 		{

@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.1
-Updated 29/11/2017
+Version 1.2
+Updated 03/12/2017
 */
 
 #pragma once
