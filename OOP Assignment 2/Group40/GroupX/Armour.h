@@ -24,4 +24,13 @@ public:
 
 	~Armour();
 
+	void SetDefence(int defence);
+	int GetDefence();
+
+	void SetArmourHealth(int armourHealth);
+	int GetArmourHealth();
+
+	void SetArmourType(ArmourType armourType);
+	ArmourType GetArmourType();
+
 };

@@ -21,4 +21,10 @@ public:
 
 	~Weapon();
 
+	void SetWeaponHitStrength(int weaponHitStrength);
+	int GetWeaponHitStrength();
+
+	void SetWeaponHealth(int weaponHealth);
+	int GetWeaponHealthI();
+
 };

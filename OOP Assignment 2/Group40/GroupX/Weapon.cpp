@@ -21,3 +21,23 @@ Weapon::~Weapon()
 {
 
 }
+
+void Weapon::SetWeaponHitStrength(int weaponHitStrength)
+{
+	weaponHitStrength_ = weaponHitStrength;
+}
+
+int Weapon::GetWeaponHitStrength()
+{
+	return weaponHitStrength_;
+}
+
+void Weapon::SetWeaponHealth(int weaponHealth)
+{
+	weaponHealth_ = weaponHealth;
+}
+
+int Weapon::GetWeaponHealthI()
+{
+	return weaponHealth_;
+}

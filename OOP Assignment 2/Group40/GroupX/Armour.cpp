@@ -21,3 +21,33 @@ Armour::~Armour()
 {
 
 }
+
+void Armour::SetDefence(int defence)
+{
+	defence_ = defence;
+}
+
+int Armour::GetDefence()
+{
+	return defence_;
+}
+
+void Armour::SetArmourHealth(int armourHealth)
+{
+	armourHealth_ = armourHealth;
+}
+
+int Armour::GetArmourHealth()
+{
+	return armourHealth_;
+}
+
+void Armour::SetArmourType(ArmourType armourType)
+{
+	armourType_ = armourType; //Wait to see functionality, may need to be adpated
+}
+
+ArmourType Armour::GetArmourType()
+{
+	return armourType_; //Wait to see functionality, may need to be adpated
+}
