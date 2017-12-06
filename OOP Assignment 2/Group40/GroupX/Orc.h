@@ -1,7 +1,7 @@
 /*
 Orc Class Created by Niall Devlin
-Version 1
-Updated 28/11/2017
+Version 1.5
+Updated 06/12/2017
 */
 
 #pragma once
