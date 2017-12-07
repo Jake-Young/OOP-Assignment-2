@@ -1,9 +1,9 @@
 /*
 * GameCharacter.cpp
 *
-* Version information v0.1
+* Version information v0.5
 * Authors: <Insert group member names and IDs> of student(s) who write each class
-* Date: 03/12/2017
+* Date: 06/12/2017
 * Description: Implementation for GameCharacter class
 * Copyright notice
 */
@@ -22,27 +22,37 @@ GameCharacter::~GameCharacter(){
 bool GameCharacter::Attack(GameCharacter & character)
 {
 	//check if the character can attack
+
+	//get equipped weapon
+	Weapon* equippedWeapon{ &GetEquippedWeapon() };
+
 	//NOTE: Brawler can attack with no weapon
-	if (weapon_ != 0 && health_ > 20 && character.GetHealth() > 0 /*OR if the state is set to dead*/)
+	if (equippedWeapon != nullptr && health_ > 20 && character.GetHealth() > 0 /*OR if the def character state is set to dead*/)
 	{
-		//can attack
+		//can attack		
+
+		//get defender's armour
+		Armour* defenderArmour{ &character.GetEquippedArmour() };
 
 		//get a random number between 0 and 100 to represent the chances of a successful attack
 		int attackChance = GetRandomNumber(0, 100);
 		int successChance = 0; //chances of the attack being successful
 
-		/*if hit strength of the weapon used by attacker is < defence value 
-		of armour of the defending character, then there is only 20% chance of a auccessful
-		attack. Otherwise there is a 60% chance of a successful attack
-		*/
-		//^ NOTE: Need weapon class for this ^
-
-		//If defender is not wearing any armour, there is an 80% chance of a successful attack
-		if (character.GetArmour() <= 0)
+		//determine the precentage of successful attack
+		if (defenderArmour == nullptr)
 		{
-			//80% chance of successful attack
+			//80% chance of successful attack if defending character has no armour
 			successChance = 80;
-
+		}
+		else if (equippedWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
+		{
+			//20% chance of success
+			successChance = 20;
+		}
+		else
+		{
+			//60% chance of success
+			successChance = 60;
 		}
 
 		//try to attack
@@ -62,14 +72,29 @@ bool GameCharacter::Attack(GameCharacter & character)
 		{
 			//unsuccessful attack
 
-			//reduce weapon health, < need weapon class for this <
+			//reduce weapon health by 10 or 20% if the defender has armour
+			if (defenderArmour == nullptr)
+			{
+				int damagePrecentage = GetRandomNumber(10, 20);
+				int currentWeaponHealth = equippedWeapon->GetWeaponHealthI();
+				int weaponDamage = currentWeaponHealth - ((currentWeaponHealth / 100) * damagePrecentage);
+				equippedWeapon->SetWeaponHealth(weaponDamage);
+			}
 		}
 
+		//free memory and return true
+		delete equippedWeapon;
+		delete defenderArmour;
+		equippedWeapon = nullptr;
+		defenderArmour = nullptr;
 		return true;
 	}
 	else
 	{
 		//cannot attack
+		//free memory and return false
+		delete equippedWeapon;
+		equippedWeapon = nullptr;
 		return false;
 	}
 }

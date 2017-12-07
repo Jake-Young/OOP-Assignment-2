@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.2
-Updated 03/12/2017
+Version 1.5
+Updated 06/12/2017
 */
 
 #include "BlackWitch.h"
@@ -38,7 +38,7 @@ void BlackWitch::SetDarkPower(int darkPow)
 
 void BlackWitch::Bewitch(GameCharacter & character)
 {
-	//Attempt to sleep character NOTE: need character state enum
+	//Attempt to sleep character NOTE: need character state enum for this
 
 	//10 + (5 * proficency) = success precentage
 	//Success precentage

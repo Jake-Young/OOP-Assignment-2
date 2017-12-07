@@ -1,15 +1,17 @@
 /*
 * GameCharacter.h
 *
-* Version information v0.1
+* Version information v0.5
 * Authors: <Insert group member names and IDs> of student(s) who write each class
-* Date: 03/12/2017
+* Date: 06/12/2017
 * Description: header file for GameCharacter class
 * Copyright notice
 */
 
 
 #pragma once
+#include "Weapon.h"
+#include "Armour.h"
 #include <string>
 #include <vector>
 class GameCharacter
@@ -20,8 +22,8 @@ private:
 	float weightLimit_;
 	int weapon_;
 	int armour_;
-	//Weapon vector goes here
-	//Armour vector goes here
+	std::vector<Weapon> weaponList_;
+	std::vector<Armour> armourList_;
 	int food_;
 	//Character state enum goes here
 
@@ -37,7 +39,8 @@ public:
 	float GetWeightLimit() const { return weightLimit_; }
 	int GetWeapon() const { return weapon_; }
 	int GetArmour() const { return armour_; }
-	//Getters for vectors goes here?
+	Weapon GetEquippedWeapon() { return weaponList_[weapon_]; }
+	Armour GetEquippedArmour() { return armourList_[armour_]; };
 	int GetFood() const { return food_; }
 	//Get character state
 
