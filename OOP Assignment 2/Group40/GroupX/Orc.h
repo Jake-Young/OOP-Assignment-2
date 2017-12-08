@@ -1,7 +1,7 @@
 /*
 Orc Class Created by Niall Devlin
-Version 1.5
-Updated 06/12/2017
+Version 1.75
+Updated 08/12/2017
 */
 
 #pragma once
@@ -28,5 +28,6 @@ public:
 	//Functions
 	virtual bool Attack(GameCharacter &character);
 	void Scream(GameCharacter &character);
+	void Sleep();
 };
 
