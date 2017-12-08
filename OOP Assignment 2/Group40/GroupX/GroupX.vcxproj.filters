@@ -24,10 +24,16 @@
     <ClCompile Include="BlackWitch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Weaponry.cpp">
+    <ClCompile Include="Orc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Orc.cpp">
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Armour.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -38,10 +44,16 @@
     <ClInclude Include="BlackWitch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Weaponry.h">
+    <ClInclude Include="Orc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Orc.h">
+    <ClInclude Include="Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Armour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
