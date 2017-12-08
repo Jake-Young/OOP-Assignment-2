@@ -50,7 +50,10 @@ public:
 	void SetWeightLimit(float weight) { weightLimit_ = weight; }
 	void SetWeapon(int weapon) { weapon_ = weapon; }
 	void SetArmour(int armour) { armour_ = armour; }
-	//Setters for vectors?
+	void AddWeapon(Weapon newWeapon);
+	void RemoveWeapon(std::string weaponName);
+	void AddArmour(Armour newArmour);
+	void RemoveArmour(std::string armourName);
 	void SetFood(int food) { food_ = food; }
 	//Set character state
 

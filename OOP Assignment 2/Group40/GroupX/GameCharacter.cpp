@@ -19,6 +19,38 @@ GameCharacter::GameCharacter(){
 GameCharacter::~GameCharacter(){
 }
 
+void GameCharacter::AddWeapon(Weapon newWeapon)
+{
+	//add new weapon to character's weapons
+	weaponList_.push_back(newWeapon);
+}
+
+void GameCharacter::RemoveWeapon(std::string weaponName)
+{
+	//remove weapon from vector
+	for (int index = 0; index < weaponList_.max_size(); index++)
+	{
+		if (weaponList_[index].GetItemName() == weaponName)
+			weaponList_.erase(weaponList_.begin() + index);
+	}
+}
+
+void GameCharacter::AddArmour(Armour newArmour)
+{
+	//add new armour to character's armour list
+	armourList_.push_back(newArmour);
+}
+
+void GameCharacter::RemoveArmour(std::string armourName)
+{
+	//remove weapon from vector
+	for (int index = 0; index < armourList_.max_size(); index++)
+	{
+		if (armourList_[index].GetItemName() == armourName)
+			armourList_.erase(armourList_.begin() + index);
+	}
+}
+
 bool GameCharacter::Attack(GameCharacter & character)
 {
 	//check if the character can attack
