@@ -11,4 +11,9 @@
 #include "CppUnitTest.h"
 
 // TODO: reference additional headers your program requires here
-#include "GameCharacter.h"
+#include "../GroupX/Armour.h"
+#include "../GroupX/BlackWitch.h"
+#include "../GroupX/GameCharacter.h"
+#include "../GroupX/Item.h"
+#include "../GroupX/Orc.h"
+#include "../GroupX/Weapon.h"
