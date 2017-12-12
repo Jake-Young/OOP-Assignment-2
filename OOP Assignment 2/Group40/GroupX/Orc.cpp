@@ -154,7 +154,7 @@ void Orc::Scream(GameCharacter & character)
 	if (screamSuccessChance >= 100)
 	{
 		//scream will always succeed
-		//Need to find a way to make character flee
+		character.SetState(CharacterState::Running);
 	}
 	else
 	{
@@ -163,8 +163,7 @@ void Orc::Scream(GameCharacter & character)
 		if (screamSuccessRoll <= screamSuccessChance)
 		{
 			//successful scream
-
-			//Need to find a way to make character flee
+			character.SetState(CharacterState::Running);
 		}
 	}
 
