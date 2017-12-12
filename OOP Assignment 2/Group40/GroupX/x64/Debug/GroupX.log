@@ -1,1 +1,9 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+﻿  BlackWitch.cpp
+  Generating Code...
+  Compiling...
+  Orc.cpp
+  Main.cpp
+  GameCharacter.cpp
+  Generating Code...
+  GroupX.vcxproj -> U:\private\GitHub\OOP-Assignment-2\OOP Assignment 2\Group40\x64\Debug\Group40.exe
+  GroupX.vcxproj -> U:\private\GitHub\OOP-Assignment-2\OOP Assignment 2\Group40\x64\Debug\Group40.pdb (Partial PDB)

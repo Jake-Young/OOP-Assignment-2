@@ -166,7 +166,7 @@ namespace Inventory_UnitTests
 			//No point initialising vectors as character should start off with no items.
 			Brawler brawler{ "Jim", 100, 40, 0, CharacterState::Idle, 60, 80 };
 			Armour shield{ "Shield", 40, 40, 50, 100, ArmourType::Leather };
-			Armour hat{ "Tinfoil Hat", 2, 0.5, 1, 100, ArmourType::Cardboard };
+			Armour hat{ "Tinfoil Hat", 2, 0.5, 1, 100, ArmourType::CardBoard };
 
 			//Act
 			addArmourResult = brawler.PickUpArmour(shield);
@@ -235,9 +235,9 @@ namespace Inventory_UnitTests
 			std::string expectedArmourName{ "Cardboard suit of armour" };
 			Brawler brawler{ "Jim", 100, 120, 0, CharacterState::Idle, 60, 80 };
 			Armour shield{ "Shield", 40, 40, 50, 100, ArmourType::Leather };
-			Armour hat{ "Tinfoil Hat", 2, 0.5f, 1, 100, ArmourType::Cardboard };
+			Armour hat{ "Tinfoil Hat", 2, 0.5f, 1, 100, ArmourType::CardBoard };
 			Armour glove1{ "Leather glove", 1, 0.23f, 1, 100, ArmourType::Leather };
-			Armour suit{ "Cardboard suit of armour", 10, 2.0f, 15, 100, ArmourType::Cardboard };
+			Armour suit{ "Cardboard suit of armour", 10, 2.0f, 15, 100, ArmourType::CardBoard };
 			Armour glove2{ "Leather glove", 1, 0.2f, 1, 75, ArmourType::Leather };
 
 			brawler.PickUpArmour(shield);

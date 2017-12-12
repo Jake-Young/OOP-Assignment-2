@@ -14,19 +14,11 @@
 #include "Armour.h"
 #include <string>
 #include <vector>
+
+enum class CharacterState {Idle, Running, Sleeping, Walking, Defending, Dead };
+
 class GameCharacter
 {
-public:
-	enum CharacterState
-	{
-		Idle,
-		Running,
-		Sleeping,
-		Walking,
-		Defending,
-		Dead
-	};
-
 private:
 	std::string characterName_;
 	float health_;
