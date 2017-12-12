@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.2
-Updated 03/12/2017
+Version 1.75
+Updated 08/12/2017
 */
 
 #pragma once
@@ -26,7 +26,8 @@ public:
 	void SetDarkPower(int darkPow);
 
 	//functions
-	virtual bool Attack(GameCharacter &character);
+	bool Attack(GameCharacter &character);
 	void Bewitch(GameCharacter &character);
+	void Sleep();
 };
 
