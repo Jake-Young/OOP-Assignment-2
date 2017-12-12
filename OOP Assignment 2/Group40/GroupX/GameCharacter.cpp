@@ -42,6 +42,51 @@ void GameCharacter::Defend(int armour)
 	
 }
 
+bool GameCharacter::PickUpWeapon(Weapon &weapon) {
+
+	float totalWeight = 0;
+
+	for (int i = 0; i < weaponList_.size(); i++) {
+		totalWeight += weaponList_[i].GetWeight();
+	}
+
+	for (int i = 0; i < armourList_.size(); i++) {
+		totalWeight += armourList_[i].GetWeight();
+	}
+
+	if (totalWeight > weightLimit_) {
+		return false;
+	}
+	else {
+		weaponList_.push_back(weapon);
+		return true;
+	}
+
+}
+
+
+bool GameCharacter::PickUpArmour(Armour &armour) {
+
+	float totalWeight = 0;
+
+	for (int i = 0; i < weaponList_.size(); i++) {
+		totalWeight += weaponList_[i].GetWeight();
+	}
+
+	for (int i = 0; i < armourList_.size(); i++) {
+		totalWeight += armourList_[i].GetWeight();
+	}
+
+	if (totalWeight > weightLimit_) {
+		return false;
+	}
+	else {
+		armourList_.push_back(armour);
+		return true;
+	}
+
+}
+
 int GameCharacter::GetRandomNumber(int min, int max)
 {
 	//random number generator
