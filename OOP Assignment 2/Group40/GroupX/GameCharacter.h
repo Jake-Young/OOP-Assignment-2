@@ -67,7 +67,7 @@ public:
 	void SetState(CharacterState newState) { state_ = newState; }
 
 	//Functions
-	virtual bool Attack(GameCharacter &character)=0;
+	virtual bool Attack(GameCharacter &character)=0; //make abstract class
 	void Defend(int armour);
 	virtual void Sleep() {};
 	bool PickUpWeapon(Weapon &weapon);
