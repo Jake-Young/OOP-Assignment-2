@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.75
-Updated 08/12/2017
+Version 1.8
+Updated 12/12/2017
 */
 
 #include "BlackWitch.h"
@@ -153,22 +153,14 @@ void BlackWitch::Bewitch(GameCharacter & character)
 	int successChance = 10 + (5 * magicProficiency_);
 
 	if (successChance >= 100)
-	{
-		//Bewitch will always succeed
-
-		//set target character to sleep
-		character.SetState(CharacterState::Sleeping);
-	}
+		character.Sleep(); //Bewitch will always succeed, set target character to sleep
 	else
 	{
 		//random chance of bewitch succeeding
 		int randomChance = GetRandomNumber(0, 100);
 
-		if (randomChance <= successChance)
-		{
-			//bewitch succeeds, set target character to sleep
-			character.SetState(CharacterState::Sleeping);
-		}
+		if (randomChance <= successChance)			
+			character.Sleep(); //bewitch succeeds, set target character to sleep
 	}
 		
 

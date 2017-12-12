@@ -31,7 +31,7 @@ GameCharacter::~GameCharacter(){
 void GameCharacter::Defend(int armour)
 {
 	//Try to equip Armour, armour is -1 if the armour value isnt valid
-	if (armour < armourList_.size())
+	if (armour < armourList_.size() && armour > 0)
 		armour_ = armour;		
 	else
 		armour_ = -1;

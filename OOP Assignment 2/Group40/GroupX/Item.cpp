@@ -11,7 +11,7 @@ Item::Item()
 
 }
 
-Item::Item(std::string itemName, int value, float weight) : itemName_{ itemName }, itemValue_{ value }, weight_{weight}
+Item::Item(std::string itemName, int value, float weight) : itemName_{ itemName }, itemValue_{ value }, weight_{ weight }
 {
 
 }
