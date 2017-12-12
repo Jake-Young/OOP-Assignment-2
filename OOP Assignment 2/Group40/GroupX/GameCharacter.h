@@ -70,6 +70,8 @@ public:
 	virtual bool Attack(GameCharacter &character)=0;
 	void Defend(int armour);
 	virtual void Sleep() {};
+	bool PickUpWeapon(Weapon &weapon);
+	bool PickUpArmour(Armour &armour);
 
 
 	//Random number generator
