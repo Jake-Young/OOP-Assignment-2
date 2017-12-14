@@ -95,3 +95,92 @@ int GameCharacter::GetRandomNumber(int min, int max)
 	std::uniform_int_distribution<int> d{ min, max };
 	return d(e);
 }
+// From here may need changed (Laura)
+void GameCharacter::GetWalk()
+{
+
+	return walk_;
+
+}
+
+void GameCharacter::SetWalk()
+{
+
+	walk_ = walk;
+
+}
+
+void GameCharacter::GetRun()
+{
+
+	return run_;
+
+}
+
+void GameCharacter::SetRun()
+{
+	run_ = run;
+}
+
+
+
+void GameCharacter::GetAddFood(int amount)
+{
+
+	return addFood_;
+
+}
+
+void GameCharacter::SetAddFood(int amount)
+{
+
+	addFood_ = addFood;
+
+}
+
+void GameCharacter::GetEat()
+{
+
+	return eat_;
+
+}
+
+void GameCharacter::SetEat()
+{
+
+	eat_ = eat;
+
+}
+
+// changing the state to walk
+void GameCharacter::Walk()
+{
+	// Changes the character state to Walking
+	SetState(GameCharacter::Walk);
+
+}
+
+// changing the state to run 
+void GameCharacter::Run()
+{
+	// Changes the character state to Running
+	SetState(GameCharacter::Run);
+
+}
+
+// add food to the value food_
+void GameCharacter::AddFood()
+{
+	//Adds the amount of food to the food_ value
+
+}
+
+// eat food 
+void GameCharacter::Eat()
+{
+	//Consumes 20% of the available food. Each unit (1) of food consumed will add 0.25 units of health to the character.
+
+
+
+}
+

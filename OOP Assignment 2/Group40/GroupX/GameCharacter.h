@@ -48,6 +48,10 @@ public:
 	CharacterState GetState() { return state_; }
 	Weapon GetEquippedWeapon() { return weaponList_[weapon_]; }
 	Armour GetEquippedArmour() { return armourList_[armour_]; }
+	void GetWalk() { state_ = CharacterState::Walking; }
+	void GetRun() { state_ = CharacterState::Running; }
+	void GetAddFood(int amount) { food_ += amount; }
+	void GetEat() { food_--; }
 
 	//Setters
 	void SetName(std::string name) { characterName_ = name; }
@@ -57,6 +61,10 @@ public:
 	void SetArmour(int armour) { armour_ = armour; }
 	void SetFood(int food) { food_ = food; }
 	void SetState(CharacterState newState) { state_ = newState; }
+	void SetWalk() { walk_ = walk; }
+	void SetRun() { run_ = run; }
+	void SetAddFood(int amount) { addFood_ = addFood; }
+	void SetEat() { eat_ = eat; }
 
 	//Functions
 	virtual bool Attack(GameCharacter &character)=0; //make abstract class
