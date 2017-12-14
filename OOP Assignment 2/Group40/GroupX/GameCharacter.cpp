@@ -18,8 +18,8 @@ GameCharacter::GameCharacter(){
 GameCharacter::GameCharacter(std::string name, float hp, float weight) :
 	characterName_{ name }, health_{ hp }, weightLimit_{ weight }
 {
-	weapon_ = -1;
-	armour_ = -1;
+	equippedWeapon_ = -1;
+	equippedArmour_ = -1;
 	food_ = -1;
 	state_ = CharacterState::Idle;
 }
@@ -28,13 +28,25 @@ GameCharacter::GameCharacter(std::string name, float hp, float weight) :
 GameCharacter::~GameCharacter(){
 }
 
+void GameCharacter::RemoveWeapon(int weapon)
+{
+	weapons_.erase(weapons_.begin() + weapon);
+	equippedWeapon_ = -1;
+}
+
+void GameCharacter::RemoveArmour(int armour)
+{
+	armour_.erase(armour_.begin() + armour);
+	equippedArmour_ = -1;
+}
+
 void GameCharacter::Defend(int armour)
 {
 	//Try to equip Armour, armour is -1 if the armour value isnt valid
-	if (armour < armourList_.size() && armour > 0)
-		armour_ = armour;		
+	if (armour < armour_.size() && armour > 0)
+		equippedArmour_ = armour;		
 	else
-		armour_ = -1;
+		equippedArmour_ = -1;
 
 	//Set state to defending
 	SetState(CharacterState::Defending);
@@ -46,19 +58,19 @@ bool GameCharacter::PickUpWeapon(Weapon &weapon) {
 
 	float totalWeight = 0;
 
-	for (int i = 0; i < weaponList_.size(); i++) {
-		totalWeight += weaponList_[i].GetWeight();
+	for (int i = 0; i < weapons_.size(); i++) {
+		totalWeight += weapons_[i].GetWeight();
 	}
 
-	for (int i = 0; i < armourList_.size(); i++) {
-		totalWeight += armourList_[i].GetWeight();
+	for (int i = 0; i < armour_.size(); i++) {
+		totalWeight += armour_[i].GetWeight();
 	}
 
 	if (totalWeight > weightLimit_) {
 		return false;
 	}
 	else {
-		weaponList_.push_back(weapon);
+		weapons_.push_back(weapon);
 		return true;
 	}
 
@@ -69,19 +81,19 @@ bool GameCharacter::PickUpArmour(Armour &armour) {
 
 	float totalWeight = 0;
 
-	for (int i = 0; i < weaponList_.size(); i++) {
-		totalWeight += weaponList_[i].GetWeight();
+	for (int i = 0; i < weapons_.size(); i++) {
+		totalWeight += weapons_[i].GetWeight();
 	}
 
-	for (int i = 0; i < armourList_.size(); i++) {
-		totalWeight += armourList_[i].GetWeight();
+	for (int i = 0; i < armour_.size(); i++) {
+		totalWeight += armour_[i].GetWeight();
 	}
 
 	if (totalWeight > weightLimit_) {
 		return false;
 	}
 	else {
-		armourList_.push_back(armour);
+		armour_.push_back(armour);
 		return true;
 	}
 

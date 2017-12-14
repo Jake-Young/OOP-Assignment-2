@@ -23,10 +23,10 @@ private:
 	std::string characterName_;
 	float health_;
 	float weightLimit_;
-	int weapon_;
-	int armour_;
-	std::vector<Weapon> weaponList_;
-	std::vector<Armour> armourList_;
+	int equippedWeapon_;
+	int equippedArmour_;
+	std::vector<Weapon> weapons_;
+	std::vector<Armour> armour_;
 	int food_;
 	CharacterState state_;
 
@@ -40,14 +40,14 @@ public:
 	std::string GetName() const { return characterName_; }
 	float GetHealth() const { return health_; }
 	float GetWeightLimit() const { return weightLimit_; }
-	int GetWeapon() const { return weapon_; }
-	int GetArmour() const { return armour_; }
+	int GetWeapon() const { return equippedWeapon_; }
+	int GetArmour() const { return equippedArmour_; }
 	int GetFood() const { return food_; }
-	Weapon GetWeapon(int index) { return weaponList_[index]; }
-	Armour GetArmour(int index) { return armourList_[index]; }
+	Weapon GetWeapon(int index) { return weapons_[index]; }
+	Armour GetArmour(int index) { return armour_[index]; }
 	CharacterState GetState() { return state_; }
-	Weapon GetEquippedWeapon() { return weaponList_[weapon_]; }
-	Armour GetEquippedArmour() { return armourList_[armour_]; }
+	Weapon GetEquippedWeapon() { return weapons_[equippedWeapon_]; }
+	Armour GetEquippedArmour() { return armour_[equippedArmour_]; }
 	void GetWalk() { state_ = CharacterState::Walking; }
 	void GetRun() { state_ = CharacterState::Running; }
 	void GetAddFood(int amount) { food_ += amount; }
@@ -57,10 +57,12 @@ public:
 	void SetName(std::string name) { characterName_ = name; }
 	void SetHealth(float hp) { health_ = hp; }
 	void SetWeightLimit(float weight) { weightLimit_ = weight; }
-	void SetWeapon(int weapon) { weapon_ = weapon; }
-	void SetArmour(int armour) { armour_ = armour; }
+	void SetWeapon(int weapon) { equippedWeapon_ = weapon; }
+	void SetArmour(int armour) { equippedArmour_ = armour; }
 	void SetFood(int food) { food_ = food; }
 	void SetState(CharacterState newState) { state_ = newState; }
+	void RemoveWeapon(int weapon);
+	void RemoveArmour(int armour);
 
 	//Functions
 	virtual bool Attack(GameCharacter &character)=0; //make abstract class
