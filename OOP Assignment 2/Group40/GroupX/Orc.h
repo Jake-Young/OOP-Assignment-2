@@ -14,7 +14,7 @@ private:
 	int strength_;
 public:
 	Orc();
-	Orc(int ferocity, int str) : ferociousness_{ ferocity }, strength_ { str } {}
+	Orc(std::string name, float hp, float weight, int food, int ferocity, int str) : GameCharacter{ name, hp, weight, food }, ferociousness_ { ferocity }, strength_{ str } {}
 	~Orc();
 
 	//Getters

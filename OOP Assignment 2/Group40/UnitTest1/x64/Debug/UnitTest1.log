@@ -1,1 +1,141 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+﻿  Assignment_UnitTests.cpp
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(17): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(17): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(17): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(20): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(20): error C2228: left of '.GetName' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(20): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(65): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(65): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(65): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(68): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(68): error C2228: left of '.Eat' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(68): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(69): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(69): error C2228: left of '.GetFood' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(69): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(82): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(82): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(82): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(85): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(85): error C2228: left of '.Eat' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(85): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(86): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(86): error C2228: left of '.GetHealth' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(86): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(97): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(97): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(97): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(100): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(100): error C2228: left of '.Eat' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(100): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(101): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(101): error C2228: left of '.GetHealth' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(101): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(122): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(122): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(122): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(125): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(125): error C2228: left of '.Defend' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(125): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(126): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(126): error C2228: left of '.GetState' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(126): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(137): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(137): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(137): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(140): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(140): error C2228: left of '.Defend' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(140): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(141): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(141): error C2228: left of '.GetEqippedArmour' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(141): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(175): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(175): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(175): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(176): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(176): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(182): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(182): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(182): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(183): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(183): error C2228: left of '.PickUpArmour' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(183): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(184): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(184): error C2228: left of '.PickUpArmour' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(184): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(196): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(196): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(196): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(197): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(197): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(198): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(198): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(202): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(202): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(202): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(203): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(203): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(203): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(215): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(215): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(215): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(220): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(220): error C2228: left of '.PickUpArmour' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(220): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(221): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(221): error C2228: left of '.PickUpArmour' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(221): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(230): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(230): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(230): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(231): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(231): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(232): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(232): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(233): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(233): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(234): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(234): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(236): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(236): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(236): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(237): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(237): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(237): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(238): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(238): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(238): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(239): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(239): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(239): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(240): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(240): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(240): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(241): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(241): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(241): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(242): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(242): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(242): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(247): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(247): error C2228: left of '.GetWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(247): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(259): error C2065: 'Brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(259): error C2146: syntax error: missing ';' before identifier 'brawler'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(259): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(260): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(260): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(261): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(261): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(262): error C2398: Element '5': conversion from 'float' to 'int' requires a narrowing conversion
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(262): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(264): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(264): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(264): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(265): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(265): error C2228: left of '.PickUpWeapon' must have class/struct/union
+  c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(265): note: type is 'unknown-type'
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(266): error C2065: 'brawler': undeclared identifier
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(266): error C2228: left of '.PickUpWeapon' must have class/struct/union
+c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\unittest1\assignment_unittests.cpp(266): fatal error C1003: error count exceeds 100; stopping compilation

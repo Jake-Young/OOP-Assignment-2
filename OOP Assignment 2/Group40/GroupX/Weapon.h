@@ -25,6 +25,6 @@ public:
 	int GetWeaponHitStrength();
 
 	void SetWeaponHealth(int weaponHealth);
-	int GetWeaponHealthI();
+	int GetWeaponHealth();
 
 };

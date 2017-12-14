@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.75
-Updated 08/12/2017
+Version 1.8
+Updated 12/12/2017
 */
 
 #include "BlackWitch.h"
@@ -41,9 +41,9 @@ bool BlackWitch::Attack(GameCharacter & character)
 	//check if the character can attack
 
 	//get equipped weapon
-	Weapon* equippedWeapon{ &GetEquippedWeapon() };
+	Weapon* attackerWeapon{ &GetEquippedWeapon() };
 
-	if (equippedWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
+	if (attackerWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
 	{
 		//can attack		
 
@@ -60,7 +60,7 @@ bool BlackWitch::Attack(GameCharacter & character)
 			//80% chance of successful attack if defending character has no armour
 			successChance = 80;
 		}
-		else if (equippedWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
+		else if (attackerWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
 		{
 			//20% chance of success
 			successChance = 20;
@@ -121,16 +121,29 @@ bool BlackWitch::Attack(GameCharacter & character)
 			if (defenderArmour == nullptr)
 			{
 				int damagePrecentage = GetRandomNumber(10, 20);
-				int currentWeaponHealth = equippedWeapon->GetWeaponHealthI();
+				int currentWeaponHealth = attackerWeapon->GetWeaponHealth();
 				int weaponDamage = currentWeaponHealth - ((currentWeaponHealth / 100) * damagePrecentage);
-				equippedWeapon->SetWeaponHealth(weaponDamage);
+				attackerWeapon->SetWeaponHealth(weaponDamage);
 			}
 		}
 
+		//remove weapon/armour that are at 0 hp or below
+		if (attackerWeapon->GetWeaponHealth() <= 0)
+		{
+			//remove weapon from equipment and set character to unarmed
+			RemoveWeapon(GetWeapon());
+		}
+
+		if (defenderArmour->GetArmourHealth() <= 0)
+		{
+			//remove armour if it's health falls to 0 or below
+			RemoveArmour(character.GetArmour());
+		}
+
 		//free memory and return true
-		delete equippedWeapon;
+		delete attackerWeapon;
 		delete defenderArmour;
-		equippedWeapon = nullptr;
+		attackerWeapon = nullptr;
 		defenderArmour = nullptr;
 		return true;
 	}
@@ -138,8 +151,8 @@ bool BlackWitch::Attack(GameCharacter & character)
 	{
 		//cannot attack
 		//free memory and return false
-		delete equippedWeapon;
-		equippedWeapon = nullptr;
+		delete attackerWeapon;
+		attackerWeapon = nullptr;
 		return false;
 	}
 }
@@ -153,22 +166,14 @@ void BlackWitch::Bewitch(GameCharacter & character)
 	int successChance = 10 + (5 * magicProficiency_);
 
 	if (successChance >= 100)
-	{
-		//Bewitch will always succeed
-
-		//set target character to sleep
-		character.SetState(CharacterState::Sleeping);
-	}
+		character.Sleep(); //Bewitch will always succeed, set target character to sleep
 	else
 	{
 		//random chance of bewitch succeeding
 		int randomChance = GetRandomNumber(0, 100);
 
-		if (randomChance <= successChance)
-		{
-			//bewitch succeeds, set target character to sleep
-			character.SetState(CharacterState::Sleeping);
-		}
+		if (randomChance <= successChance)			
+			character.Sleep(); //bewitch succeeds, set target character to sleep
 	}
 		
 

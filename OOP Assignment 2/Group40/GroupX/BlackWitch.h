@@ -1,7 +1,7 @@
 /*
 Black Witch Class Created by Niall Devlin
-Version 1.75
-Updated 08/12/2017
+Version 1.8
+Updated 12/12/2017
 */
 
 #pragma once
@@ -14,7 +14,7 @@ private:
 	int darkPower_;
 public:
 	BlackWitch();
-	BlackWitch(int magicProf, int darkPow) : magicProficiency_{ magicProf }, darkPower_{ darkPow } {}
+	BlackWitch(std::string name, float hp, float weight, int food, int magicProf, int darkPow) : GameCharacter{ name, hp, weight, food }, magicProficiency_ { magicProf }, darkPower_{ darkPow } {}
 	~BlackWitch();
 
 	//getters
