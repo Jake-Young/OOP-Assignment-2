@@ -33,7 +33,7 @@ private:
 public:
 
 	GameCharacter();
-	GameCharacter(std::string name, float hp, float weight);
+	GameCharacter(std::string name, float hp, float weight, int food);
 	~GameCharacter();
 
 	//Getters

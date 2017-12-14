@@ -15,12 +15,11 @@
 GameCharacter::GameCharacter(){
 }
 
-GameCharacter::GameCharacter(std::string name, float hp, float weight) :
-	characterName_{ name }, health_{ hp }, weightLimit_{ weight }
+GameCharacter::GameCharacter(std::string name, float hp, float weight, int food) :
+	characterName_{ name }, health_{ hp }, weightLimit_{ weight }, food_{ food }
 {
 	equippedWeapon_ = -1;
 	equippedArmour_ = -1;
-	food_ = -1;
 	state_ = CharacterState::Idle;
 }
 
@@ -135,11 +134,11 @@ void GameCharacter::AddFood(int amount)
 void GameCharacter::Eat()
 {
 	//Consumes 20% of the available food. Each unit (1) of food consumed will add 0.25 units of health to the character.
-	int foodConsume = food_ *0.20;
+	float foodConsume = food_ *0.20f;
 
 	food_ -= foodConsume;
 
-	health_ += foodConsume * 0.25;
+	health_ += foodConsume * 0.25f;
 
 }
 

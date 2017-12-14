@@ -23,6 +23,40 @@ namespace Assignment_UnitTests
 			Assert::AreEqual(expectedName, characterName);
 		}
 
+		TEST_METHOD(TestBalckWitchConstructor)
+		{
+			//Arrange
+			BlackWitch witch{ "Sarah", 100, 100, 0, 0, 0 };
+			std::string expectedName{ "Sarah" };
+			float expectedHP = 100;
+			float expectedWeight = 100;
+			int expectedFood = 0;
+			int expectedMagicProf = 0;
+			int expectedDarkPower = 0;
+
+			//Act
+			std::string characterName = witch.GetName();
+			float actualHP = witch.GetHealth();
+			float actualWeight = witch.GetWeightLimit();
+			int actualFood = witch.GetFood();
+			int actualMagicProf = witch.GetMagicProficiency();
+			int actualDarkPower = witch.GetDarkPower();
+			CharacterState actualState = witch.GetState();
+			int actualWeapon = witch.GetWeapon();
+			int actualArmour = witch.GetArmour();
+
+			//Assert
+			Assert::AreEqual(expectedName, characterName);
+			Assert::AreEqual(expectedHP, actualHP);
+			Assert::AreEqual(expectedWeight, actualWeight);
+			Assert::AreEqual(expectedFood, actualFood);
+			Assert::AreEqual(expectedMagicProf, actualMagicProf);
+			Assert::AreEqual(expectedDarkPower, actualDarkPower);
+			Assert::AreEqual(actualState, CharacterState::Idle);
+			Assert::AreEqual(actualWeapon, -1);
+			Assert::AreEqual(actualArmour, -1);
+		}
+
 		TEST_METHOD(TestEatConsumesFood)
 		{
 			//Tests that food gets consumed by eat function
@@ -108,6 +142,51 @@ namespace Conflict_UnitTests
 
 			//Assert
 			Assert::AreEqual(expectedIndex, actualIndex);
+		}
+
+		TEST_METHOD(Defend3)
+		{
+			//Test that the character can defend using sleected armour
+			//Arrange
+			CharacterState expectedState{ CharacterState::Defending }, actualState;
+			BlackWitch witch{ "Sarah", 100, 100, 0, 0, 0 };
+
+			//Act
+			witch.Defend(0);
+			actualState = witch.GetState();
+
+			//Assert
+			Assert::AreEqual(expectedState, actualState);
+		}
+
+		TEST_METHOD(Defend4)
+		{
+			//Test that the character selected armour remains -1 
+			//Arrange the data
+			int expectedIndex{ -1 }, actualIndex;
+			BlackWitch witch{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+
+			//Act
+			witch.Defend(0); //invalid index! no armour in vector
+			actualIndex = witch.GetArmour();
+
+			//Assert
+			Assert::AreEqual(expectedIndex, actualIndex);
+		}
+
+		TEST_METHOD(TestBewitch)
+		{
+			//Test the bewitch function for Black Witch
+			//Arrange
+			BlackWitch witch{ "Sarah", 100, 100, 0, 100, 100 }; //100 Magic Prof. for 100% success chance of bewitch succeeding
+			Orc enemy{ "Baak", 100, 100, 0, 0, 10 };
+			Assert::AreEqual(enemy.GetState(), CharacterState::Idle);
+
+			//Act
+			witch.Bewitch(enemy);
+
+			//Assert
+			Assert::AreEqual(enemy.GetState(), CharacterState::Sleeping);
 		}
 	};
 }
