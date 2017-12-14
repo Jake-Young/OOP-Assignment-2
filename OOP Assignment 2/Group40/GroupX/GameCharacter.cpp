@@ -96,67 +96,12 @@ int GameCharacter::GetRandomNumber(int min, int max)
 	return d(e);
 }
 // From here may need changed (Laura)
-void GameCharacter::GetWalk()
-{
-
-	return walk_;
-
-}
-
-void GameCharacter::SetWalk()
-{
-
-	walk_ = walk;
-
-}
-
-void GameCharacter::GetRun()
-{
-
-	return run_;
-
-}
-
-void GameCharacter::SetRun()
-{
-	run_ = run;
-}
-
-
-
-void GameCharacter::GetAddFood(int amount)
-{
-
-	return addFood_;
-
-}
-
-void GameCharacter::SetAddFood(int amount)
-{
-
-	addFood_ = addFood;
-
-}
-
-void GameCharacter::GetEat()
-{
-
-	return eat_;
-
-}
-
-void GameCharacter::SetEat()
-{
-
-	eat_ = eat;
-
-}
 
 // changing the state to walk
 void GameCharacter::Walk()
 {
 	// Changes the character state to Walking
-	SetState(GameCharacter::Walk);
+	SetState(CharacterState::Walking);
 
 }
 
@@ -164,23 +109,25 @@ void GameCharacter::Walk()
 void GameCharacter::Run()
 {
 	// Changes the character state to Running
-	SetState(GameCharacter::Run);
+	SetState(CharacterState::Running);
 
 }
 
-// add food to the value food_
-void GameCharacter::AddFood()
+void GameCharacter::AddFood(int amount)
 {
 	//Adds the amount of food to the food_ value
-
+	food_ += amount;
 }
 
 // eat food 
 void GameCharacter::Eat()
 {
 	//Consumes 20% of the available food. Each unit (1) of food consumed will add 0.25 units of health to the character.
+	int foodConsume = food_ *0.20;
 
+	food_ -= foodConsume;
 
+	health_ += foodConsume * 0.25;
 
 }
 

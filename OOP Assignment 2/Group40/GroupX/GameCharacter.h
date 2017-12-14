@@ -61,10 +61,6 @@ public:
 	void SetArmour(int armour) { armour_ = armour; }
 	void SetFood(int food) { food_ = food; }
 	void SetState(CharacterState newState) { state_ = newState; }
-	void SetWalk() { walk_ = walk; }
-	void SetRun() { run_ = run; }
-	void SetAddFood(int amount) { addFood_ = addFood; }
-	void SetEat() { eat_ = eat; }
 
 	//Functions
 	virtual bool Attack(GameCharacter &character)=0; //make abstract class
@@ -72,6 +68,12 @@ public:
 	virtual void Sleep() {};
 	bool PickUpWeapon(Weapon &weapon);
 	bool PickUpArmour(Armour &armour);
+
+	//Laura's work
+	void Walk();
+	void Run();
+	void AddFood(int amount);
+	void Eat();
 
 
 	//Random number generator
