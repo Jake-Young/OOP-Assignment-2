@@ -14,7 +14,7 @@ private:
 	int darkPower_;
 public:
 	BlackWitch();
-	BlackWitch(std::string name, float hp, float weight, int food, int magicProf, int darkPow) : GameCharacter{ name, hp, weight, food }, magicProficiency_ { magicProf }, darkPower_{ darkPow } {}
+	BlackWitch(int magicProf, int darkPow) : magicProficiency_{ magicProf }, darkPower_{ darkPow } {}
 	~BlackWitch();
 
 	//getters

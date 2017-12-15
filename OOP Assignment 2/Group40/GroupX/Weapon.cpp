@@ -37,7 +37,7 @@ void Weapon::SetWeaponHealth(int weaponHealth)
 	weaponHealth_ = weaponHealth;
 }
 
-int Weapon::GetWeaponHealth()
+int Weapon::GetWeaponHealthI()
 {
 	return weaponHealth_;
 }

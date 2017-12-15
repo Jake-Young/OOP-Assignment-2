@@ -42,9 +42,9 @@ bool Orc::Attack(GameCharacter & character)
 	//check if the character can attack
 
 	//get equipped weapon
-	Weapon* attackerWeapon{ &GetEquippedWeapon() };
+	Weapon* equippedWeapon{ &GetEquippedWeapon() };
 
-	if (attackerWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
+	if (equippedWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
 	{
 		//can attack		
 
@@ -61,7 +61,7 @@ bool Orc::Attack(GameCharacter & character)
 			//80% chance of successful attack if defending character has no armour
 			successChance = 80;
 		}
-		else if (attackerWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
+		else if (equippedWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
 		{
 			//20% chance of success
 			successChance = 20;
@@ -122,29 +122,16 @@ bool Orc::Attack(GameCharacter & character)
 			if (defenderArmour == nullptr)
 			{
 				int damagePrecentage = GetRandomNumber(10, 20);
-				int currentWeaponHealth = attackerWeapon->GetWeaponHealth();
+				int currentWeaponHealth = equippedWeapon->GetWeaponHealthI();
 				int weaponDamage = currentWeaponHealth - ((currentWeaponHealth / 100) * damagePrecentage);
-				attackerWeapon->SetWeaponHealth(weaponDamage);
+				equippedWeapon->SetWeaponHealth(weaponDamage);
 			}
 		}
 
-		//remove weapon/armour that are at 0 hp or below
-		if (attackerWeapon->GetWeaponHealth() <= 0)
-		{
-			//remove weapon from equipment and set character to unarmed
-			RemoveWeapon(GetWeapon());
-		}
-
-		if (defenderArmour->GetArmourHealth() <= 0)
-		{
-			//remove armour if it's health falls to 0 or below
-			RemoveArmour(character.GetArmour());
-		}
-
 		//free memory and return true
-		delete attackerWeapon;
+		delete equippedWeapon;
 		delete defenderArmour;
-		attackerWeapon = nullptr;
+		equippedWeapon = nullptr;
 		defenderArmour = nullptr;
 		return true;
 	}
@@ -152,8 +139,8 @@ bool Orc::Attack(GameCharacter & character)
 	{
 		//cannot attack
 		//free memory and return false
-		delete attackerWeapon;
-		attackerWeapon = nullptr;
+		delete equippedWeapon;
+		equippedWeapon = nullptr;
 		return false;
 	}
 }
