@@ -70,6 +70,9 @@ public:
 	virtual void Sleep() {};
 	bool PickUpWeapon(Weapon &weapon);
 	bool PickUpArmour(Armour &armour);
+	void DropArmour(Armour & armour);
+	void DropWeapon(Weapon & weapon);
+	bool EquipWeapon(int weapon);
 
 	//Laura's work
 	void Walk();

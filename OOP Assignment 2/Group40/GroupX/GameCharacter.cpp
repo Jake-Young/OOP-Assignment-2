@@ -98,6 +98,61 @@ bool GameCharacter::PickUpArmour(Armour &armour) {
 
 }
 
+void GameCharacter::DropArmour(Armour &armour)
+{
+	for (size_t i = 0; i < armour_.size(); i++)
+	{
+		//Check if the weapon matches the weapon that is being drop
+		if (armour_.at(i).GetArmourType() == armour.GetArmourType() && armour_.at(i).GetValue() == armour.GetValue() && armour_.at(i).GetWeight() == armour.GetWeight()
+			&& armour_.at(i).GetItemName() == armour.GetItemName() && armour_.at(i).GetDefence() == armour.GetDefence()
+			&& armour_.at(i).GetArmourHealth() == armour.GetArmourHealth())
+		{
+			armour_.erase(armour_.begin() + i);
+
+			//
+			if (GetEquippedArmour().GetArmourHealth() == armour.GetArmourHealth() && GetEquippedArmour().GetArmourType() == armour.GetArmourType()
+				&& GetEquippedArmour().GetDefence() == armour.GetDefence() && GetEquippedArmour().GetItemName() == armour.GetItemName() &&
+				GetEquippedArmour().GetValue() == armour.GetValue() && GetEquippedArmour().GetWeight() == armour.GetWeight())
+			{
+				equippedArmour_ = -1;
+			}
+		}
+
+	}
+}
+
+void GameCharacter::DropWeapon(Weapon &weapon)
+{
+	for (size_t i = 0; i < weapons_.size(); i++)
+	{
+		if (weapons_.at(i).GetItemName() == weapon.GetItemName()
+			&& weapons_.at(i).GetValue() == weapon.GetValue()
+			&& weapons_.at(i).GetWeaponHealth() == weapon.GetWeaponHealth()
+			&& weapons_.at(i).GetWeaponHitStrength() == weapon.GetWeaponHitStrength() && weapons_.at(i).GetWeight() == weapon.GetWeight())
+
+			weapons_.erase(weapons_.begin() + i);
+		if (GetEquippedWeapon().GetItemName() == weapon.GetItemName() && GetEquippedWeapon().GetValue() == weapon.GetValue() && GetEquippedWeapon().GetWeaponHealth() == weapon.GetWeaponHealth()
+			&& GetEquippedWeapon().GetWeaponHitStrength() == weapon.GetWeight() && GetEquippedWeapon().GetWeight() == weapon.GetWeight())
+		{
+			equippedWeapon_ = -1;
+		}
+	}
+}
+
+bool GameCharacter::EquipWeapon(int weapon)
+{
+	if (weapon > -1 && weapon < weapons_.size())
+	{
+		equippedWeapon_ = weapon;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
 int GameCharacter::GetRandomNumber(int min, int max)
 {
 	//random number generator

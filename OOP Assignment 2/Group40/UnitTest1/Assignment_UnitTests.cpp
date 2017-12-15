@@ -82,7 +82,7 @@ namespace Assignment_UnitTests
 			Assert::AreEqual(expectedHP, actualHP);
 			Assert::AreEqual(expectedWeight, actualWeight);
 			Assert::AreEqual(expectedFood, actualFood);
-			Assert::AreEqual(expectedPiety, actualPietyLevel);
+			Assert::AreEqual(expectedPietyLevel, actualPietyLevel);
 			Assert::AreEqual(actualState, CharacterState::Idle);
 			Assert::AreEqual(actualWeapon, -1);
 			Assert::AreEqual(actualArmour, -1);
@@ -236,7 +236,7 @@ namespace Conflict_UnitTests
 
 			//Act
 			brawler.Defend(0); //invalid index! no armour in vector
-			actualIndex = brawler.GetEqippedArmour();
+			actualIndex = brawler.GetEquippedArmour();
 
 			//Assert
 			Assert::AreEqual(expectedIndex, actualIndex);
@@ -262,7 +262,7 @@ namespace Conflict_UnitTests
 			//Test that the character selected armour remains -1 
 			//Arrange the data
 			int expectedIndex{ -1 }, actualIndex;
-			BlackWitch witch{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+			BlackWitch witch{ "Sarah", 100, 100, 0, 0, 0 };
 
 			//Act
 			witch.Defend(0); //invalid index! no armour in vector
@@ -411,7 +411,7 @@ namespace Inventory_UnitTests
 
 			//Act
 
-			brawler.DropItem(spear2); //Weapon spear2 should be removed not spear2 - same name different attributes!
+			brawler.DropWeapon(spear2); //Weapon spear2 should be removed not spear2 - same name different attributes!
 
 			Weapon tempWeapon = brawler.GetWeapon(0);
 			std::string actualWeaponName = tempWeapon.GetItemName();
@@ -439,7 +439,7 @@ namespace Inventory_UnitTests
 			brawler.PickUpArmour(glove2);
 
 			//Act
-			brawler.DropItem(glove1); //Weapon spear2 should be removed not spear2 - same name different attributes!
+			brawler.DropArmour(glove1); //Weapon spear2 should be removed not spear2 - same name different attributes!
 
 			Armour tempArmour = brawler.GetArmour(2);
 			std::string actualArmourName = tempArmour.GetItemName();
