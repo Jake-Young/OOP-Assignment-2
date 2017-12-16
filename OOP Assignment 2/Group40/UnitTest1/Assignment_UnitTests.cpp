@@ -23,7 +23,7 @@ namespace Assignment_UnitTests
 			Assert::AreEqual(expectedName, characterName);
 		}
 
-		TEST_METHOD(TestBalckWitchConstructor)
+		TEST_METHOD(TestBlackWitchConstructor)
 		{
 			//Arrange
 			BlackWitch witch{ "Sarah", 100, 100, 0, 0, 0 };
@@ -55,6 +55,72 @@ namespace Assignment_UnitTests
 			Assert::AreEqual(actualState, CharacterState::Idle);
 			Assert::AreEqual(actualWeapon, -1);
 			Assert::AreEqual(actualArmour, -1);
+		}
+
+		TEST_METHOD(TestClericConstructor) 
+		{
+			//Arrange 
+			Cleric cleric{ "Joe", 100, 70, 50, 80};
+			std::string expectedName{ "Joe" };
+			float expectedHP = 100;
+			float expectedWeight = 70;
+			int expectedFood = 50;
+			int expectedPietyLevel = 80;
+
+			//Act
+			std::string actualName = cleric.GetName();
+			int actualHP = cleric.GetHealth();
+			int actualWeight = cleric.GetWeightLimit();
+			int actualFood = cleric.GetFood();
+			int actualPietyLevel = cleric.GetPietyLevel();
+			CharacterState actualState = cleric.GetState();
+			int actualWeapon = cleric.GetWeapon();
+			int actualArmour = cleric.GetArmour();
+
+			//Assert
+			Assert::AreEqual(expectedName, actualName);
+			Assert::AreEqual(expectedHP, actualHP);
+			Assert::AreEqual(expectedWeight, actualWeight);
+			Assert::AreEqual(expectedFood, actualFood);
+			Assert::AreEqual(expectedPietyLevel, actualPietyLevel);
+			Assert::AreEqual(actualState, CharacterState::Idle);
+			Assert::AreEqual(actualWeapon, -1);
+			Assert::AreEqual(actualArmour, -1);
+		}
+
+		TEST_METHOD(TestOrcConstructor)
+		{
+			//Arrange 
+			Orc orc{ "Bob", 100, 150, 50, 100, 70 };
+			std::string expectedName = "Bob";
+			int expectedHP = 100;
+			int expectedWeight = 150;
+			int expectedFood = 50;
+			int expectedFerocity = 100;
+			int expectedStrength = 70;
+
+			//Act
+			std::string actualName = orc.GetName();
+			int actualHP = orc.GetHealth();
+			int actualWeight = orc.GetWeightLimit();
+			int actualFood = orc.GetFood();
+			int actualFerocity = orc.GetFerocity();
+			int actualStrength = orc.GetStrength();
+			CharacterState actualState = orc.GetState();
+			int actualWeapon = orc.GetWeapon();
+			int actualArmour = orc.GetArmour();
+
+			//Assert
+			Assert::AreEqual(expectedName,actualName);
+			Assert::AreEqual(expectedHP, actualHP);
+			Assert::AreEqual(expectedWeight, actualWeight);
+			Assert::AreEqual(expectedFood, actualFood);
+			Assert::AreEqual(expectedFerocity, actualFerocity);
+			Assert::AreEqual(expectedStrength, actualStrength);
+			Assert::AreEqual(actualState, CharacterState::Idle);
+			Assert::AreEqual(actualWeapon, -1);
+			Assert::AreEqual(actualArmour, -1);
+
 		}
 
 		TEST_METHOD(TestEatConsumesFood)
@@ -103,6 +169,38 @@ namespace Assignment_UnitTests
 			//Assert
 			Assert::AreEqual(expectedHealth, actualHealth);
 		}
+		
+		TEST_METHOD(TestSleepHealth100)
+		{
+			//Test Sleep function when character health is already 100
+			//Arrange
+			int expectedHealth = 100;
+			Brawler brawler{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+
+			//Act
+			brawler.Sleep();
+			int actualHealth = brawler.GetHealth();
+
+			//Assert
+			Assert::AreEqual(expectedHealth, actualHealth);
+
+		}
+		
+		TEST_METHOD(TestSleepHealthLessThan100)
+		{
+			//Test Sleep function when character health is below 100
+			//Arrange 
+			int expectedHealth = 75; //Might be 74, depends on how it is rounded. Actual number given is 74.75
+			Brawler brawler{ "Jim", 65, 120, 50, CharacterState::Idle, 60, 80 };
+
+			//Act
+			brawler.Sleep();
+			int actualHealth = brawler.GetHealth();
+
+			//Assert
+			Assert::AreEqual(expectedHealth, actualHealth);
+
+		}
 
 	};
 
@@ -138,7 +236,7 @@ namespace Conflict_UnitTests
 
 			//Act
 			brawler.Defend(0); //invalid index! no armour in vector
-			actualIndex = brawler.GetEqippedArmour();
+			actualIndex = brawler.GetEquippedArmour();
 
 			//Assert
 			Assert::AreEqual(expectedIndex, actualIndex);
@@ -164,7 +262,7 @@ namespace Conflict_UnitTests
 			//Test that the character selected armour remains -1 
 			//Arrange the data
 			int expectedIndex{ -1 }, actualIndex;
-			BlackWitch witch{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+			BlackWitch witch{ "Sarah", 100, 100, 0, 0, 0 };
 
 			//Act
 			witch.Defend(0); //invalid index! no armour in vector
@@ -187,6 +285,21 @@ namespace Conflict_UnitTests
 
 			//Assert
 			Assert::AreEqual(enemy.GetState(), CharacterState::Sleeping);
+		}
+
+		//Test Orc scream
+		TEST_METHOD(TestScream) 
+		{
+			//Act 
+			Orc orc{ "Bob", 100, 150, 50, 100, 70 }; //100 ferociousness, similar to bewitch test. 100% success rate.
+			BlackWitch enemy{ "Sarah", 100, 100, 0, 10, 10 };
+
+			//Arrange
+			orc.Scream(enemy);
+
+			//Assert
+			Assert::AreEqual(enemy.GetState(), CharacterState::Running);
+
 		}
 	};
 }
@@ -298,7 +411,7 @@ namespace Inventory_UnitTests
 
 			//Act
 
-			brawler.DropItem(spear2); //Weapon spear2 should be removed not spear2 - same name different attributes!
+			brawler.DropWeapon(spear2); //Weapon spear2 should be removed not spear2 - same name different attributes!
 
 			Weapon tempWeapon = brawler.GetWeapon(0);
 			std::string actualWeaponName = tempWeapon.GetItemName();
@@ -326,7 +439,7 @@ namespace Inventory_UnitTests
 			brawler.PickUpArmour(glove2);
 
 			//Act
-			brawler.DropItem(glove1); //Weapon spear2 should be removed not spear2 - same name different attributes!
+			brawler.DropArmour(glove1); //Weapon spear2 should be removed not spear2 - same name different attributes!
 
 			Armour tempArmour = brawler.GetArmour(2);
 			std::string actualArmourName = tempArmour.GetItemName();

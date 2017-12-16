@@ -17,3 +17,5 @@
 #include "../GroupX/Item.h"
 #include "../GroupX/Orc.h"
 #include "../GroupX/Weapon.h"
+#include "../GroupX/Brawler.h"
+#include "../GroupX/Cleric.h"
