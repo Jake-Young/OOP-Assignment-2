@@ -16,7 +16,7 @@ private:
 
 public:
 	Brawler();
-	Brawler(int punchDam, int strength) : punchDamage_{ punchDam }, strength_{ strength } {}
+	Brawler(std::string name, float health, float weightLimit, int food, CharacterState state, int punchDamage, int strength) : GameCharacter{ name, health, weightLimit, food, state }, punchDamage_{ punchDamage }, strength_{ strength } {}
 	~Brawler();
 
 	//Setters 

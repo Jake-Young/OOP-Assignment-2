@@ -14,7 +14,7 @@ private:
 
 public:
 	Cleric();
-	Cleric(int pietyLvl) : pietyLevel_{ pietyLvl } {}
+	Cleric(std::string name, float health, float weightLimit, int food, CharacterState state, int pietyLvl) : GameCharacter{ name, health, weightLimit, food, state }, pietyLevel_ { pietyLvl } {}
 	~Cleric();
 
 	//Setter
