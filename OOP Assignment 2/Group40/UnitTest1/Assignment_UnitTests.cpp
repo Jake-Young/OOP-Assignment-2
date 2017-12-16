@@ -69,8 +69,8 @@ namespace Assignment_UnitTests
 
 			//Act
 			std::string actualName = cleric.GetName();
-			int actualHP = cleric.GetHealth();
-			int actualWeight = cleric.GetWeightLimit();
+			float actualHP = cleric.GetHealth();
+			float actualWeight = cleric.GetWeightLimit();
 			int actualFood = cleric.GetFood();
 			int actualPietyLevel = cleric.GetPietyLevel();
 			CharacterState actualState = cleric.GetState();
@@ -93,16 +93,16 @@ namespace Assignment_UnitTests
 			//Arrange 
 			Orc orc{ "Bob", 100, 150, 50, 100, 70 };
 			std::string expectedName = "Bob";
-			int expectedHP = 100;
-			int expectedWeight = 150;
+			float expectedHP = 100;
+			float expectedWeight = 150;
 			int expectedFood = 50;
 			int expectedFerocity = 100;
 			int expectedStrength = 70;
 
 			//Act
 			std::string actualName = orc.GetName();
-			int actualHP = orc.GetHealth();
-			int actualWeight = orc.GetWeightLimit();
+			float actualHP = orc.GetHealth();
+			float actualWeight = orc.GetWeightLimit();
 			int actualFood = orc.GetFood();
 			int actualFerocity = orc.GetFerocity();
 			int actualStrength = orc.GetStrength();

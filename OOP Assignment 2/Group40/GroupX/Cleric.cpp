@@ -35,7 +35,7 @@ void Cleric::Sleep()
 {
 	//set character to sleep
 
-	//Increase HP by 15%
+	//Increase HP by 20%
 	float baseHP = GetHealth();
 	float HPIncrease = baseHP / 100 * 20;
 

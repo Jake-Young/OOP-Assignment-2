@@ -195,5 +195,9 @@ void GameCharacter::Eat()
 
 	health_ += foodConsume * 0.25f;
 
+	//ensure hp does not exceed 100
+	if (health_ > 100)
+		health_ = 100;
+
 }
 
