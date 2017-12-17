@@ -1,3 +1,1 @@
-﻿  GameCharacter.cpp
-c:\users\csf16den\desktop\oop-assignment-2\oop assignment 2\group40\groupx\gamecharacter.cpp(139): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-  GroupX.vcxproj -> C:\Users\CSF16DEN\Desktop\OOP-Assignment-2\OOP Assignment 2\Group40\x64\Debug\Group40.exe
+﻿  GroupX.vcxproj -> C:\Users\User\Desktop\GitHub\OOP-Assignment-2\OOP Assignment 2\Group40\x64\Debug\Group40.exe

@@ -15,12 +15,10 @@
 GameCharacter::GameCharacter(){
 }
 
-GameCharacter::GameCharacter(std::string name, float hp, float weight, int food) :
-	characterName_{ name }, health_{ hp }, weightLimit_{ weight }, food_{ food }
+GameCharacter::GameCharacter(std::string name, float health, float weightLimit, int food, CharacterState state) : characterName_{ name }, health_{ health }, weightLimit_{ weightLimit }, food_{ food }, state_{ state }
 {
 	equippedWeapon_ = -1;
 	equippedArmour_ = -1;
-	state_ = CharacterState::Idle;
 }
 
 
@@ -194,6 +192,10 @@ void GameCharacter::Eat()
 	food_ -= foodConsume;
 
 	health_ += foodConsume * 0.25f;
+
+	//ensure hp does not exceed 100
+	if (health_ > 100)
+		health_ = 100;
 
 }
 
