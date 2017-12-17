@@ -201,6 +201,34 @@ namespace Assignment_UnitTests
 			Assert::AreEqual(expectedHealth, actualHealth);
 
 		}
+		// Added the Scream here (laura) this comment can be removed
+		TEST_METHOD(TestScream)
+		{
+			Orc orcs("Jon", 100, 45, 75, 100, 85);
+			Brawler brawl("Ben", 100, 20, 35, 100, 50);
+
+			//Arrange
+			orcs.Scream(brawl);
+
+			// Change state to running
+			Assert::AreEqual(brawl.GetState(), CharacterState::Running);
+		}
+
+
+		// Added the Attack here (laura) this comment can be removed
+		TEST_METHOD(TestAttack)
+		{
+			Orc orcs("Jon", 100, 50, 75, 80, 100);
+			Brawler brawl("Ben", 100, 35, 50, 65, 90);
+			// Arrange
+			orcs.Attack(brawl);
+
+			// Change state to defending the attack (brawl should be defending the orcs attack?
+			Assert::AreEqual(brawl.GetState(), CharacterState::Defending);
+		}
+
+
+
 
 	};
 
