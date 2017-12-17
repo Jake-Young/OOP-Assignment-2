@@ -23,7 +23,7 @@
     <ProjectGuid>{BD30C8D7-7BAC-4537-A536-CF6186BDC757}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>GroupX</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <ProjectName>Group40</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -153,7 +153,6 @@
     <ClCompile Include="Brawler.cpp" />
     <ClCompile Include="Cleric.cpp" />
     <ClCompile Include="GameCharacter.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Orc.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Weapon.cpp" />

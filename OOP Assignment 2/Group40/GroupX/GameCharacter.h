@@ -15,7 +15,7 @@
 #include <string>
 #include <vector>
 
-enum class CharacterState {Idle, Running, Sleeping, Walking, Defending, Dead };
+enum CharacterState {Idle, Running, Sleeping, Walking, Defending, Dead };
 
 class GameCharacter
 {

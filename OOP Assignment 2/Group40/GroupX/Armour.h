@@ -8,7 +8,7 @@ Updated 05/11/2017
 
 #include "Item.h"
 
-enum class ArmourType {CardBoard, Leather, Wood, Iron, Steel};
+enum ArmourType {CardBoard, Leather, Wood, Iron, Steel};
 
 class Armour : public Item {
 
