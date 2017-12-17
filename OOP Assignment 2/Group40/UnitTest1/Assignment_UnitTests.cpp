@@ -221,7 +221,7 @@ namespace Conflict_UnitTests
 
 			//Act
 			brawler.Defend(1); //invalid index! no armour in vector
-			actualState = static_cast<int>(brawler.GetState());
+			actualState = brawler.GetState();
 
 			//Assert
 			Assert::AreEqual(expectedState, actualState);
