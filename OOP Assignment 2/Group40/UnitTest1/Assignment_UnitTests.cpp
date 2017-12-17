@@ -309,6 +309,22 @@ namespace Conflict_UnitTests
 			Assert::AreEqual(enemy.GetState(), CharacterState::Sleeping);
 		}
 
+		//Test Black Witch Sleep
+		TEST_METHOD(TestBlackWitchSleep)
+		{
+			//Arrange
+			BlackWitch witch{ "Sarah", 50, 50, 0, CharacterState::Idle, 0, 0 };
+			float expectedHP = witch.GetHealth() + (witch.GetHealth() * 0.15);
+
+			//Act
+			witch.Sleep();
+			float actualHP = witch.GetHealth();
+
+			//Assert
+			Assert::AreEqual(witch.GetState(), CharacterState::Sleeping);
+			Assert::AreEqual(expectedHP, actualHP);
+		}
+
 		//Test Orc scream
 		TEST_METHOD(TestScream) 
 		{
