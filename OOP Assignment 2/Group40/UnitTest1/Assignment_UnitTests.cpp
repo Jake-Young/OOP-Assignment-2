@@ -12,15 +12,36 @@ namespace Assignment_UnitTests
 
 		TEST_METHOD(TestBrawlerConstructor)
 		{
-			//Arrange the data
-			std::string expectedName{ "Jim" };
+			//Arrange the data			
 			Brawler brawler{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+			std::string expectedName{ "Jim" };
+			float expectedHP = 100;
+			float expectedWeight = 120;
+			int expectedFood = 50;
+			int expectedPunchDamage = 60;
+			int expectedStrength = 80;
 
 			//Act
 			std::string characterName = brawler.GetName();
+			float actualHP = brawler.GetHealth();
+			float actualWeight = brawler.GetWeightLimit();
+			int actualFood = brawler.GetFood();
+			int actualPunchDamage = brawler.GetPunchDamage();
+			int actualStrength = brawler.GetStrength();
+			CharacterState actualState = brawler.GetState();
+			int actualWeapon = brawler.GetWeapon();
+			int actualArmour = brawler.GetArmour();
 
 			//Assert
 			Assert::AreEqual(expectedName, characterName);
+			Assert::AreEqual(expectedHP, actualHP);
+			Assert::AreEqual(expectedWeight, actualWeight);
+			Assert::AreEqual(expectedFood, actualFood);
+			Assert::AreEqual(expectedPunchDamage, actualPunchDamage);
+			Assert::AreEqual(expectedStrength, actualStrength);
+			Assert::AreEqual(actualState, CharacterState::Idle);
+			Assert::AreEqual(actualWeapon, -1);
+			Assert::AreEqual(actualArmour, -1);
 		}
 
 		TEST_METHOD(TestBlackWitchConstructor)
@@ -216,7 +237,8 @@ namespace Conflict_UnitTests
 		{
 			//Test that the character enters defending state
 			//Arrange the data
-			int expectedState{ 4 }, actualState;
+			CharacterState expectedState{ CharacterState::Defending };
+			CharacterState actualState;
 			Brawler brawler{ "Jim", 100, 120, 50, CharacterState::Idle, 60, 80 };
 
 			//Act
@@ -301,6 +323,19 @@ namespace Conflict_UnitTests
 			Assert::AreEqual(enemy.GetState(), CharacterState::Running);
 
 		}
+
+		// Added the Attack here (laura) this comment can be removed
+		TEST_METHOD(TestAttack)
+		{
+			Orc orcs("Jon", 100, 50, 75, CharacterState::Idle, 80, 100);
+			Brawler brawl("Ben", 100, 35, 50, CharacterState::Idle, 65, 90);
+			// Arrange
+			orcs.Attack(brawl);
+
+			// Change state to defending the attack (brawl should be defending the orcs attack?
+			Assert::AreEqual(brawl.GetState(), CharacterState::Defending);
+		}
+
 	};
 }
 
