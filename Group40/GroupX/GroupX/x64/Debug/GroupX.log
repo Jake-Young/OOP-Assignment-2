@@ -1,61 +1,15 @@
-﻿  Orc.cpp
-c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(45): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(45): error C2440: 'initializing': cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(45): note: Reason: cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(45): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(52): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(52): error C2440: 'initializing': cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(52): note: Reason: cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\orc.cpp(52): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+﻿  Weapon.cpp
+  Orc.cpp
+  Main.cpp
+  item.cpp
   GameCharacter.cpp
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(218): error C2228: left of '.GetArmourHealth' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(218): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(218): error C2228: left of '.GetArmourType' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(218): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(219): error C2228: left of '.GetDefence' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(219): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(219): error C2228: left of '.GetItemName' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(219): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(220): error C2228: left of '.GetValue' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(220): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(220): error C2228: left of '.GetWeight' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(220): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): error C2228: left of '.GetItemName' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): error C2228: left of '.GetValue' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): error C2228: left of '.GetWeaponHealth' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(239): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(240): error C2228: left of '.GetWeaponHitStrength' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(240): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(240): error C2228: left of '.GetWeight' must have class/struct/union
-  c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(240): note: type is 'int'
-c:\users\niall\desktop\empty project\groupx\groupx\gamecharacter.cpp(299): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\gamecharacter.cpp(305): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
   Cleric.cpp
-c:\users\niall\desktop\empty project\groupx\groupx\cleric.cpp(32): error C2440: 'initializing': cannot convert from 'int' to 'Weapon'
-  c:\users\niall\desktop\empty project\groupx\groupx\cleric.cpp(32): note: No constructor could take the source type, or constructor overload resolution was ambiguous
-c:\users\niall\desktop\empty project\groupx\groupx\cleric.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\niall\desktop\empty project\groupx\groupx\cleric.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\cleric.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\cleric.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   Brawler.cpp
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(49): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(49): error C2440: 'initializing': cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(49): note: Reason: cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(49): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(56): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(56): error C2440: 'initializing': cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(56): note: Reason: cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(56): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(157): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(157): error C2440: 'initializing': cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(157): note: Reason: cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\brawler.cpp(157): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
   BlackWitch.cpp
-c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(44): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(44): error C2440: 'initializing': cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(44): note: Reason: cannot convert from 'int *' to 'Weapon *'
-  c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(44): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
-c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(51): error C2102: '&' requires l-value
-c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(51): error C2440: 'initializing': cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(51): note: Reason: cannot convert from 'int *' to 'Armour *'
-  c:\users\niall\desktop\empty project\groupx\groupx\blackwitch.cpp(51): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+  Armour.cpp
   Generating Code...
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\brawler.cpp(227): warning C4715: 'Brawler::Brawl': not all control paths return a value
+  GroupX.vcxproj -> C:\Users\Niall\Documents\Software Development\Year 2\OO Programming\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.lib

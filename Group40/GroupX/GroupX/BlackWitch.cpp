@@ -41,14 +41,14 @@ bool BlackWitch::Attack(GameCharacter & character)
 	//check if the character can attack
 
 	//get equipped weapon
-	Weapon* attackerWeapon{ &GetEquippedWeapon() };
+	Weapon* attackerWeapon{ &GetWeapon(GetEquippedWeapon()) };
 
 	if (attackerWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
 	{
 		//can attack		
 
 		//get defender's armour
-		Armour* defenderArmour{ &character.GetEquippedArmour() };
+		Armour* defenderArmour{ &character.GetArmour(GetEquippedArmour()) };
 
 		//get a random number between 0 and 100 to represent the chances of a successful attack
 		int attackChance = GetRandomNumber(0, 100);
