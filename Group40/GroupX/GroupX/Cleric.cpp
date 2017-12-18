@@ -29,7 +29,7 @@ bool Cleric::Attack(GameCharacter &character)
 {
 	bool hitChance = true;
 	bool hitCharacter = true;
-	Weapon a = this->GetEquippedWeapon();
+	Weapon a = this->GetWeapon(GetEquippedWeapon()); //correction by Niall
 
 	if (this->GetEquippedWeapon() == -1 || this->GetHealth() <= 20 || character.GetState() == CharacterState::Dead) {
 		hitChance = false;
