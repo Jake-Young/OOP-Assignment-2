@@ -429,6 +429,25 @@ namespace Inventory_UnitTests
 				Assert::AreEqual(expectedWeaponName, weaponName);
 			}
 
+			TEST_METHOD(TestAddArmour)
+			{
+				//Arrange
+				Brawler brawler{ "Mike", 100, 120, 0, CharacterState::Idle, 60, 80 };
+				Armour plate{ "Iron Plate", 10, 5, 50, 50, ArmourType::Iron };
+				Armour box{ "Cardboard Box", 2, 2, 5, 10, ArmourType::CardBoard };
+
+				brawler.PickUpArmour(plate);
+				brawler.PickUpArmour(box);
+
+				//Act
+				std::string expectedArmourName = "Iron Plate";
+				Armour tempArmour = brawler.GetArmour(0);
+				std::string actualArmourName = tempArmour.GetItemName();
+
+				//Assert
+				Assert::AreEqual(expectedArmourName, actualArmourName);
+			}
+
 			TEST_METHOD(TestDropWeapon)
 			{
 				//Test Drop weapon
@@ -481,6 +500,54 @@ namespace Inventory_UnitTests
 				//Assert
 				Assert::AreEqual(expectedArmourName, actualArmourName);
 
+			}
+
+			TEST_METHOD(TestRemoveWeapon)
+			{
+				//Arrange the data
+				Brawler brawler{ "Jim", 100, 120, 0, CharacterState::Idle, 60, 80 };
+				Weapon spear{ "spear", 15, 25, 100, 6 };
+				Weapon bow{ "bow", 15, 25, 100, 3 };
+				Weapon spear2{ "Lance of Longinus", 10, 2, 70, 2 };
+				Weapon arrow{ "arrow", 15, 25, 100, 6 };
+
+				brawler.PickUpWeapon(spear);
+				brawler.PickUpWeapon(bow);
+				brawler.PickUpWeapon(spear2);
+				brawler.PickUpWeapon(arrow);
+				brawler.PickUpWeapon(arrow);
+				brawler.PickUpWeapon(arrow);
+				brawler.PickUpWeapon(arrow);
+
+				std::string unexpectedWeaponName{ "Lance of Longinus" };
+
+				//Act
+				brawler.RemoveWeapon(2);
+				Weapon tempWeapon = brawler.GetWeapon(2);
+				std::string weaponName = tempWeapon.GetItemName();
+
+				//Assert
+				Assert::AreNotEqual(unexpectedWeaponName, weaponName);
+			}
+
+			TEST_METHOD(TestRemoveArmour)
+			{
+				//Arrange
+				Brawler brawler{ "Mike", 100, 120, 0, CharacterState::Idle, 60, 80 };
+				Armour plate{ "Iron Plate", 10, 5, 50, 50, ArmourType::Iron };
+				Armour box{ "Cardboard Box", 2, 2, 5, 10, ArmourType::CardBoard };
+
+				brawler.PickUpArmour(plate);
+				brawler.PickUpArmour(box);
+
+				//Act
+				brawler.RemoveArmour(0);
+				std::string unexpectedArmourName = "Iron Plate";
+				Armour tempArmour = brawler.GetArmour(0);
+				std::string actualArmourName = tempArmour.GetItemName();
+
+				//Assert
+				Assert::AreNotEqual(unexpectedArmourName, actualArmourName);
 			}
 	};
 }

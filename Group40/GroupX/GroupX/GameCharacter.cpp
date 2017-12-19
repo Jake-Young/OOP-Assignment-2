@@ -160,7 +160,7 @@ void GameCharacter::Defend(int armour)
 
 bool GameCharacter::PickUpWeapon(Weapon &weapon) {
 
-	float totalWeight = 0;
+	float totalWeight = weapon.GetWeight(); //(Niall): Taking weapon weight into account
 
 	for (int i = 0; i < weapons_.size(); i++) {
 		totalWeight += weapons_[i].GetWeight();
@@ -183,7 +183,7 @@ bool GameCharacter::PickUpWeapon(Weapon &weapon) {
 
 bool GameCharacter::PickUpArmour(Armour &armour) {
 
-	float totalWeight = 0;
+	float totalWeight = armour.GetWeight(); //(Niall): Taking armour weight into account
 
 	for (int i = 0; i < weapons_.size(); i++) {
 		totalWeight += weapons_[i].GetWeight();
