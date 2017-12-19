@@ -143,8 +143,7 @@ bool Brawler::Attack(GameCharacter &character)
 	{
 		//no weapon
 		//Brawl instead
-		Brawl(character);
-		return true; //adding a return true here (Niall)
+		return Brawl(character); //(Niall): Return brawl's result
 	}
 }
 
