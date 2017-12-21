@@ -1,2 +1,15 @@
-﻿  BlackWitch.cpp
-  GroupX.vcxproj -> C:\Users\Niall\Desktop\Jake's Stuff\GitHub\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe
+﻿  Weapon.cpp
+  Orc.cpp
+  Main.cpp
+  item.cpp
+  GameCharacter.cpp
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\gamecharacter.cpp(305): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  Cleric.cpp
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\cleric.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\cleric.cpp(92): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Brawler.cpp
+  BlackWitch.cpp
+  Armour.cpp
+  Generating Code...
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\brawler.cpp(233): warning C4715: 'Brawler::Brawl': not all control paths return a value
+  GroupX.vcxproj -> C:\Users\Niall\Documents\Software Development\Year 2\OO Programming\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe
