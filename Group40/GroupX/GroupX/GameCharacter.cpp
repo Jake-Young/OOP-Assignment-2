@@ -149,7 +149,7 @@ void GameCharacter::RemoveArmour(int armour)
 void GameCharacter::Defend(int armour)
 {
 	//Try to equip Armour, armour is -1 if the armour value isnt valid
-	if (armour < armour_.size() && armour > 0)
+	if (armour >= 0)
 		equippedArmour_ = armour;
 	else
 		equippedArmour_ = -1;
