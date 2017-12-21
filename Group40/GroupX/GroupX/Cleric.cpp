@@ -37,10 +37,11 @@ bool Cleric::Attack(GameCharacter &character)
 	}
 
 	if (hitChance = true) {
-		std::random_device randomnum;
-		std::mt19937 gen(randomnum());
-		std::uniform_real_distribution<> dis(1, 100);
-		int result = dis(gen);
+		//std::random_device randomnum;
+		//std::mt19937 gen(randomnum());
+		//std::uniform_real_distribution<> dis(1, 100);
+		//int result = dis(gen);
+		int result = this->GetRandomNumber(1, 100);
 		int chancetohit;
 		Armour b;
 		bool wearingArmour = true;
@@ -86,10 +87,11 @@ bool Cleric::Attack(GameCharacter &character)
 		else {
 			hitCharacter = false;
 			if (wearingArmour = true) {
-				std::random_device randomnum2;
-				std::mt19937 gen(randomnum());
-				std::uniform_real_distribution<> dis(10, 20);
-				int result = dis(gen);
+				//std::random_device randomnum2;
+				//std::mt19937 gen(randomnum());
+				//std::uniform_real_distribution<> dis(10, 20);
+				//int result = dis(gen);
+				int result = this->GetRandomNumber(10, 20);
 				int newweaponhealth = a.GetWeaponHealth() - result;
 				a.SetWeaponHealth(newweaponhealth);
 				if (a.GetWeaponHealth() <= 0) {
