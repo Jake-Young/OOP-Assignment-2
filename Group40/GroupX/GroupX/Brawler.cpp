@@ -46,16 +46,14 @@ bool Brawler::Attack(GameCharacter &character)
 	//check if the character can attack
 
 	//get equipped weapon
-	int attackWeaponIndex = GetEquippedWeapon();
+	Weapon* equippedWeapon{ &GetWeapon(GetEquippedWeapon()) };
 
-	if (attackWeaponIndex >= 0 && GetHealth() > 20 && GetState() != CharacterState::Dead)
+	if (equippedWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
 	{
-		//can attack
-		Weapon* equippedWeapon{ &GetWeapon(attackWeaponIndex) };
+		//can attack		
 
 		//get defender's armour
-		int defenderArmourIndex = GetEquippedArmour();
-		Armour* defenderArmour{ &character.GetArmour(defenderArmourIndex) };
+		Armour* defenderArmour{ &character.GetArmour(GetEquippedArmour()) };
 
 		//get a random number between 0 and 100 to represent the chances of a successful attack
 		int attackChance = GetRandomNumber(0, 100);
@@ -141,16 +139,11 @@ bool Brawler::Attack(GameCharacter &character)
 		defenderArmour = nullptr;
 		return true;
 	}
-	else if (attackWeaponIndex < 0)
+	else
 	{
 		//no weapon
 		//Brawl instead
 		return Brawl(character); //(Niall): Return brawl's result
-	}
-	else
-	{
-		//cannot attack, return false
-		return false;
 	}
 }
 
