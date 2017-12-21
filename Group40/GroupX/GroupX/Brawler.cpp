@@ -44,106 +44,127 @@ int Brawler::GetStrength() const
 bool Brawler::Attack(GameCharacter &character)
 {
 	//check if the character can attack
-
-	//get equipped weapon
-	Weapon* equippedWeapon{ &GetWeapon(GetEquippedWeapon()) };
-
-	if (equippedWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
+	int weaponIndex = this->GetEquippedWeapon();
+	if (weaponIndex >= 0 && this->GetHealth() > 20 && character.GetState() != CharacterState::Dead)
 	{
-		//can attack		
+		//can attack
 
-		//get defender's armour
-		Armour* defenderArmour{ &character.GetArmour(GetEquippedArmour()) };
+		//Get attacker weapon and defender armour
+		Weapon* attackerWeapon{ &this->GetWeapon(weaponIndex) };
+		int defArmourIndex = character.GetEquippedArmour();
+		Armour* defenderArmour{ &character.GetArmour(defArmourIndex) };
 
-		//get a random number between 0 and 100 to represent the chances of a successful attack
-		int attackChance = GetRandomNumber(0, 100);
-		int successChance = 0; //chances of the attack being successful
+		//chances of successful hit
+		int successfulHitChance = 0;
+		int weaponHitStr = attackerWeapon->GetWeaponHitStrength();
+		int armourDefence = defenderArmour->GetDefence();
 
-							   //determine the precentage of successful attack
-		if (defenderArmour == nullptr)
+		if (defArmourIndex < 0)
 		{
-			//80% chance of successful attack if defending character has no armour
-			successChance = 80;
+			successfulHitChance = 80;
 		}
-		else if (equippedWeapon->GetWeaponHitStrength() < defenderArmour->GetDefence())
+		else if (weaponHitStr < armourDefence)
 		{
-			//20% chance of success
-			successChance = 20;
+			successfulHitChance = 20;
 		}
 		else
 		{
-			//60% chance of success
-			successChance = 60;
+			successfulHitChance = 60;
 		}
 
-		//try to attack
-		if (attackChance <= successChance)
+		//is the attack a success?
+		int rng = this->GetRandomNumber(1, 100);
+
+		if (successfulHitChance <= rng)
 		{
 			//successful attack
-			int atkPower = 0;
+			float attackPower = 0.0f;
 
-			switch (character.GetState())
+			//get defending character state
+			CharacterState defenderState = character.GetState();
+			switch (defenderState)
 			{
 			case CharacterState::Defending:
-				atkPower = 10;
+				attackPower += 10.0f;
 				break;
 			case CharacterState::Sleeping:
-				atkPower = 100;
+				attackPower += 100.0f;
 				break;
 			case CharacterState::Dead:
-				atkPower = 0;
+				attackPower = 0.0f;
 				break;
 			default:
-				atkPower = 20;
+				attackPower += 20.0f;
 				break;
 			}
 
-			//Apply damage & Increases attack power by 5% for every 10 strength
-			int attackIncrease = GetStrength() / 2;
-			atkPower += attackIncrease;
+			//Apply damage & (BRAWLER) Increases attack power by 5% for every 10 strength
+			float attackIncrease = this->GetStrength() / 2;
+			attackPower += attackIncrease;
 
 			//do not overextend attack power
-			if (atkPower > 100)
-				atkPower = 100;
+			if (attackPower > 100.0f)
+				attackPower = 100.0f;
 
-			float enemyHP = character.GetHealth();
-			float enemyDamage = enemyHP / 100 * atkPower;
-			character.SetHealth(enemyHP - enemyDamage);
+			float defenderHealth = character.GetHealth();
+			float damageToApply = defenderHealth - ((defenderHealth / 100) * attackPower);
+			character.SetHealth(damageToApply);
 
-			//Reduce armour hp by 10%
-			if (defenderArmour != nullptr)
+			//reduce defender armour by 10% and remove it if it falls to or below 0
+			int defArmourHealth = defenderArmour->GetArmourHealth();
+			int defArmourDamage = defArmourHealth - ((defArmourHealth / 100) * 10);
+			defenderArmour->SetArmourHealth(defArmourDamage);
+
+			if (defenderArmour->GetArmourHealth() <= 0)
 			{
-				int enemyArmourHP = defenderArmour->GetArmourHealth();
-				int armourDmg = enemyArmourHP / 100 * 10;
-				defenderArmour->SetArmourHealth(enemyArmourHP - armourDmg);
+				character.RemoveArmour(defArmourIndex);
+				defenderArmour->~Armour();
 			}
+
+			//free memory and return true
+			//delete attackerWeapon;
+			//delete defenderArmour;
+			attackerWeapon = nullptr;
+			defenderArmour = nullptr;
+			return true;
 		}
 		else
 		{
 			//unsuccessful attack
 
-			//reduce weapon health by 10 or 20% if the defender has armour
-			if (defenderArmour == nullptr)
+			//reduce weapon health by 10 to 20% if the defender has armour
+			if (defArmourIndex >= 0)
 			{
-				int damagePrecentage = GetRandomNumber(10, 20);
-				int currentWeaponHealth = equippedWeapon->GetWeaponHealth();
-				int weaponDamage = currentWeaponHealth - ((currentWeaponHealth / 100) * damagePrecentage);
-				equippedWeapon->SetWeaponHealth(weaponDamage);
-			}
-		}
+				int weaponHealthReduce = this->GetRandomNumber(10, 20);
+				int weaponHealth = attackerWeapon->GetWeaponHealth();
+				int newWeaponHealth = weaponHealth - ((weaponHealth / 100) * weaponHealthReduce);
+				attackerWeapon->SetWeaponHealth(newWeaponHealth);
 
-		//free memory and return true
-		delete equippedWeapon;
-		delete defenderArmour;
-		equippedWeapon = nullptr;
-		defenderArmour = nullptr;
-		return true;
+				//remove weapon if health is below 0
+				if (attackerWeapon->GetWeaponHealth() <= 0)
+				{
+					this->RemoveWeapon(weaponIndex);
+					attackerWeapon->~Weapon();
+				}
+			}
+
+			//free memory and return false
+			//delete attackerWeapon;
+			//delete defenderArmour;
+			attackerWeapon = nullptr;
+			defenderArmour = nullptr;
+			return false;
+		}
+	}
+	else if (weaponIndex < 0)
+	{
+		//no wepaon, brawl insteaad
+		return Brawl(character);
 	}
 	else
 	{
-		//no weapon
-		//Brawl instead
-		return Brawl(character); //(Niall): Return brawl's result
+		//cannot attack
+		return false;
 	}
 }
 
