@@ -42,16 +42,14 @@ bool Orc::Attack(GameCharacter & character)
 	//check if the character can attack
 
 	//get equipped weapon
-	int attackWeaponIndex = GetEquippedWeapon();
+	Weapon* attackerWeapon{ &GetWeapon(GetEquippedWeapon()) };
 
-	if (attackWeaponIndex >= 0 && GetHealth() > 20 && GetState() != CharacterState::Dead)
+	if (attackerWeapon != nullptr && GetHealth() > 20 && GetState() != CharacterState::Dead)
 	{
-		//can attack
-		Weapon* attackerWeapon{ &GetWeapon(attackWeaponIndex) };
+		//can attack		
 
 		//get defender's armour
-		int defenderArmourIndex = GetEquippedArmour();
-		Armour* defenderArmour{ &character.GetArmour(defenderArmourIndex) };
+		Armour* defenderArmour{ &character.GetArmour(GetEquippedArmour()) };
 
 		//get a random number between 0 and 100 to represent the chances of a successful attack
 		int attackChance = GetRandomNumber(0, 100);
@@ -152,7 +150,10 @@ bool Orc::Attack(GameCharacter & character)
 	}
 	else
 	{
-		//cannot attack, return false
+		//cannot attack
+		//free memory and return false
+		delete attackerWeapon;
+		attackerWeapon = nullptr;
 		return false;
 	}
 }
