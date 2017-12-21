@@ -36,7 +36,7 @@ void BlackWitch::SetDarkPower(int darkPow)
 	darkPower_ = darkPow;
 }
 
-bool BlackWitch::Attack(GameCharacter & character)
+bool BlackWitch::Attack(GameCharacter &character)
 {
 	//check if the character can attack
 

@@ -125,7 +125,7 @@ namespace UnitTests
 				int actualFood = orc.GetFood();
 				int actualFerocity = orc.GetFerocity();
 				int actualStrength = orc.GetStrength();
-				int actualState = orc.GetState(); //change this
+				int actualState = orc.GetState(); 
 				int actualWeapon = orc.GetEquippedWeapon();
 				int actualArmour = orc.GetEquippedArmour();
 
@@ -140,6 +140,60 @@ namespace UnitTests
 				Assert::AreEqual(actualWeapon, -1);
 				Assert::AreEqual(actualArmour, -1);
 
+			}
+
+			TEST_METHOD(TestWeaponConstructor)
+			{
+				//Arrange
+				Weapon sword{ "Sword", 50, 12.5f, 25, 100 };
+				std::string expectedName{ "Sword" };
+				int expectedValue{ 50 };
+				float expectedWeight{ 12.5f };
+				int expectedHitStrength{ 25 };
+				int expectedHealth{ 100 };
+
+				//Act
+				std::string actualName{ sword.GetItemName() };
+				int actualValue{ sword.GetValue() };
+				float actualWeight{ sword.GetWeight() };
+				int actualHitStrength{ sword.GetWeaponHitStrength() };
+				int actualHealth{ sword.GetWeaponHealth() };
+
+				//Assert
+				Assert::AreEqual(expectedName, actualName);
+				Assert::AreEqual(expectedValue, actualValue);
+				Assert::AreEqual(expectedWeight, actualWeight);
+				Assert::AreEqual(expectedHitStrength, actualHitStrength);
+				Assert::AreEqual(expectedHealth, actualHealth);
+
+			}
+
+			TEST_METHOD(TestArmourConstructor)
+			{
+				//Arrange
+				Armour helmet{ "Helmet", 75, 30.0f, 15, 100, ArmourType::Iron };
+				std::string expectedName{ "Helmet" };
+				int expectedValue{ 75 };
+				float expectedWeight{ 30.0f };
+				int expectedDefense{ 15 };
+				int expectedHealth{ 100 };
+				int expectedArmourType{ ArmourType::Iron };
+
+				//Act
+				std::string actualName{ helmet.GetItemName() };
+				int actualValue{ helmet.GetValue() };
+				float actualWeight{ helmet.GetWeight() };
+				int actualDefense{ helmet.GetDefence() };
+				int actualHealth{ helmet.GetArmourHealth() };
+				int actualArmourType{ helmet.GetArmourType() };
+
+				//Assert
+				Assert::AreEqual(expectedName, actualName);
+				Assert::AreEqual(expectedValue, actualValue);
+				Assert::AreEqual(expectedWeight, actualWeight);
+				Assert::AreEqual(expectedDefense, actualDefense);
+				Assert::AreEqual(expectedHealth, actualHealth);
+				Assert::AreEqual(expectedArmourType, actualArmourType);
 			}
 
 			TEST_METHOD(TestEatConsumesFood)
@@ -209,7 +263,7 @@ namespace UnitTests
 			{
 				//Test Sleep function when character health is below 100
 				//Arrange 
-				float expectedHealth = 75; //Might be 74, depends on how it is rounded. Actual number given is 74.75
+				float expectedHealth = 78; //Might be 74, depends on how it is rounded. Actual number given is 74.75 //WRONG
 				Brawler brawler{ "Jim", 65, 120, 50, CharacterState::Idle, 60, 80 };
 
 				//Act
