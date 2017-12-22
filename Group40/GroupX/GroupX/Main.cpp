@@ -59,25 +59,86 @@ int main() {
 	witch.PickUpWeapon(bow);
 
 	//Combat
-	//Cleric attacks the Brawler
+	//Test 1 - Cleric attacks the Brawler
+	cout << "Test 1: " << endl << endl;
 	brawler.Defend(0);
 	cleric.EquipWeapon(0);
-	cout << "Brawler's health before: " << brawler.GetHealth() << endl;
+	cout << "Brawler's health before: " << brawler.GetHealth() << endl; //Should be 100
 	cout << "Brawler's armour health before attack: " << brawler.GetArmour(0).GetArmourHealth() << endl;
+	cout << "Cleric's weapon health before attack: " << cleric.GetWeapon(0).GetWeaponHealth() << endl;
 	cleric.Attack(brawler);
-	cout << "Brawler's health after cleric attack with \"legendaryStaff\": " << brawler.GetHealth() << endl;
-	cout << "Brawler's armour health after attack: " << brawler.GetArmour(0).GetArmourHealth() << endl;
-	cout << "Brawler's character state: " << brawler.GetState() << endl; //Should be defending
+	cout << "Brawler's health after cleric attack with \"legendaryStaff\": " << brawler.GetHealth() << endl; //Should be less than initial health
+	cout << "Brawler's armour health after attack: " << brawler.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
+	cout << "Cleric's weapon health after attackL " << cleric.GetWeapon(0).GetWeaponHealth() << endl;
+	cout << "Brawler's character state: " << brawler.GetState() << endl << endl; //Should be defending
 
-	//Witch attacks the Cleric
+	//Test 2 - Witch attacks the Cleric
+	cout << "Test 2: " << endl << endl;
 	cleric.Defend(0);
 	witch.EquipWeapon(0);
-	cout << "Cleric's health before: " << cleric.GetHealth() << endl;
+	cout << "Cleric's health before: " << cleric.GetHealth() << endl; //Should be 100
 	cout << "Cleric's armour health before attack: " << cleric.GetArmour(0).GetArmourHealth() << endl;
+	cout << "Witch's weapon health before attack: " << witch.GetWeapon(0).GetWeaponHealth() << endl;
 	witch.Attack(cleric);
-	cout << "Cleric's health after cleric attack with \"legendaryStaff\": " << cleric.GetHealth() << endl;
-	cout << "Cleric's armour after attack: " << cleric.GetArmour(0).GetArmourHealth() << endl;
-	cout << "Cleric's character state: " << cleric.GetState() << endl; //Should be defending
+	cout << "Cleric's health after witch attack with \"bow\": " << cleric.GetHealth() << endl; //Should be less than initial health
+	cout << "Cleric's armour after attack: " << cleric.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
+	cout << "Witch's weapon health after attackL " << witch.GetWeapon(0).GetWeaponHealth() << endl;
+	cout << "Cleric's character state: " << cleric.GetState() << endl << endl; //Should be defending
+
+	//Test 3 - Orc attacks Witch
+	cout << "Test 3: " << endl << endl;
+	witch.Defend(0);
+	orc.EquipWeapon(0);
+	cout << "Witch's health before: " << witch.GetHealth() << endl; //Should be 100
+	cout << "Witch's armour health before attack: " << witch.GetArmour(0).GetArmourHealth() << endl;
+	cout << "Orc's weapon health before attack: " << orc.GetWeapon(0).GetWeaponHealth() << endl;
+	orc.Attack(witch);
+	cout << "Witch's health after orc attack with \"spear\": " << witch.GetHealth() << endl; //Should be less than initial health
+	cout << "Witch's armour after attack: " << witch.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
+	cout << "Orc's weapon health after attackL " << orc.GetWeapon(0).GetWeaponHealth() << endl;
+	cout << "Witch's character state: " << witch.GetState() << endl << endl; //Should be defending
+
+	//Test 4 - Brawler attacks Orc with no weapon initiating brawl
+	cout << "Test 4: " << endl << endl;
+	orc.Defend(0);
+	cout << "Orc's health before: " << orc.GetHealth() << endl; //Should be 100
+	cout << "Orc's armour health before attack: " << orc.GetArmour(0).GetArmourHealth() << endl;
+	brawler.Attack(orc);
+	cout << "Orc's health after brawler attack with \"brawl\": " << orc.GetHealth() << endl; //Should be less than initial health
+	cout << "Orc's armour after attack: " << orc.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
+	cout << "Orc's character state: " << orc.GetState() << endl << endl; //Should be defending
+
+	//Test 5 - Brawler attacks Orc with weapon equipped
+	cout << "Test 5: " << endl << endl;
+	brawler.EquipWeapon(0);
+	cout << "Orc's health before: " << orc.GetHealth() << endl; //Should be 100
+	cout << "Orc's armour health before attack: " << orc.GetArmour(0).GetArmourHealth() << endl;
+	cout << "Brawler's weapon health before attack: " << brawler.GetWeapon(0).GetWeaponHealth() << endl;
+	brawler.Attack(orc);
+	cout << "Orc's health after brawler attack with \"sword\": " << orc.GetHealth() << endl; //Should be less than initial health
+	cout << "Orc's armour after attack: " << orc.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
+	cout << "Brawler's weapon health after attackL " << brawler.GetWeapon(0).GetWeaponHealth() << endl;
+	cout << "Orc's character state: " << orc.GetState() << endl << endl; //Should be defending
+
+	//Test 6 - Cleric heals orc
+	cout << "Test 6: " << endl << endl;
+	cout << "Orc's health after cleric heal: " << orc.GetHealth() << endl; //Should be 
+
+	//Test 7 - Witch bewitchs everyone but herself (Puts characters to sleep, character state 2) 
+	cout << "Test 7: " << endl << endl;
+	witch.Bewitch(cleric);
+	witch.Bewitch(brawler);
+	witch.Bewitch(orc);
+
+	cout << "Cleric's character state: " << cleric.GetState() << endl << endl; //Should be defending or sleeping, 2 or 4
+	cout << "Witch's character state: " << witch.GetState() << endl << endl; //Should be defending or sleeping, 2 or 4
+	cout << "Orc's character state: " << orc.GetState() << endl << endl; //Should be defending or sleeping 2 or 4
+
+	//Test 8 - Witch sleeps, healing herself
+	cout << "Test 8: " << endl << endl;
+	witch.Sleep();
+
+	cout << "Witch's health after sleep: " << witch.GetHealth() << endl; 
 
 	return 0;
 }

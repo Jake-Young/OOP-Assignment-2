@@ -149,7 +149,7 @@ void GameCharacter::RemoveArmour(int armour)
 void GameCharacter::Defend(int armour)
 {
 	//Try to equip Armour, armour is -1 if the armour value isnt valid
-	if (armour >= 0)
+	if (armour >= 0 && armour < armour_.size())
 		equippedArmour_ = armour;
 	else
 		equippedArmour_ = -1;
@@ -205,27 +205,32 @@ bool GameCharacter::PickUpArmour(Armour &armour) {
 
 void GameCharacter::DropArmour(Armour &armour)
 {
+
 	for (size_t i = 0; i < armour_.size(); i++)
 	{
-		//Check if the weapon matches the weapon that is being drop
+		//Check if the armour matches the armour that is being drop
 		if (armour_.at(i).GetArmourType() == armour.GetArmourType() && armour_.at(i).GetValue() == armour.GetValue() && armour_.at(i).GetWeight() == armour.GetWeight()
 			&& armour_.at(i).GetItemName() == armour.GetItemName() && armour_.at(i).GetDefence() == armour.GetDefence()
 			&& armour_.at(i).GetArmourHealth() == armour.GetArmourHealth())
 		{
 			armour_.erase(armour_.begin() + i);
 
-			//current armour pointer (Niall)
-			Armour* currentArmour{& GetArmour(GetEquippedArmour())};
-			//
-			if (currentArmour->GetArmourHealth() == armour.GetArmourHealth() && currentArmour->GetArmourType() == armour.GetArmourType()
-				&& currentArmour->GetDefence() == armour.GetDefence() && currentArmour->GetItemName() == armour.GetItemName() &&
-				currentArmour->GetValue() == armour.GetValue() && currentArmour->GetWeight() == armour.GetWeight())
-			{
-				equippedArmour_ = -1;
+			if (GetEquippedArmour() >= 0) {
+				//current armour pointer (Niall)
+				int defArmourIndex = this->GetEquippedArmour();
+				Armour* currentArmour{ &this->GetArmour(defArmourIndex) };
+
+				if (currentArmour->GetArmourHealth() == armour.GetArmourHealth() && currentArmour->GetArmourType() == armour.GetArmourType()
+					&& currentArmour->GetDefence() == armour.GetDefence() && currentArmour->GetItemName() == armour.GetItemName() &&
+					currentArmour->GetValue() == armour.GetValue() && currentArmour->GetWeight() == armour.GetWeight())
+				{
+					equippedArmour_ = -1;
+				}
 			}
 		}
 
 	}
+
 }
 
 void GameCharacter::DropWeapon(Weapon &weapon)
@@ -235,18 +240,21 @@ void GameCharacter::DropWeapon(Weapon &weapon)
 		if (weapons_.at(i).GetItemName() == weapon.GetItemName()
 			&& weapons_.at(i).GetValue() == weapon.GetValue()
 			&& weapons_.at(i).GetWeaponHealth() == weapon.GetWeaponHealth()
-			&& weapons_.at(i).GetWeaponHitStrength() == weapon.GetWeaponHitStrength() && weapons_.at(i).GetWeight() == weapon.GetWeight())
-
+			&& weapons_.at(i).GetWeaponHitStrength() == weapon.GetWeaponHitStrength() && weapons_.at(i).GetWeight() == weapon.GetWeight()) 
+		{
 			weapons_.erase(weapons_.begin() + i);
 
-		//current weapon pointer (Niall)
-		Weapon* currentWeapon{ &GetWeapon(GetEquippedWeapon()) };
+			if (GetEquippedWeapon() >= 0) {
+				//current weapon pointer (Niall)
+				Weapon* currentWeapon{ &GetWeapon(GetEquippedWeapon()) };
 
-		if (currentWeapon->GetItemName() == weapon.GetItemName() && currentWeapon->GetValue() == weapon.GetValue() && currentWeapon->GetWeaponHealth() == weapon.GetWeaponHealth()
-			&& currentWeapon->GetWeaponHitStrength() == weapon.GetWeight() && currentWeapon->GetWeight() == weapon.GetWeight())
-		{
-			equippedWeapon_ = -1;
-		}
+				if (currentWeapon->GetItemName() == weapon.GetItemName() && currentWeapon->GetValue() == weapon.GetValue() && currentWeapon->GetWeaponHealth() == weapon.GetWeaponHealth()
+					&& currentWeapon->GetWeaponHitStrength() == weapon.GetWeight() && currentWeapon->GetWeight() == weapon.GetWeight())
+				{
+					equippedWeapon_ = -1;
+				}
+			}
+		}		
 	}
 }
 

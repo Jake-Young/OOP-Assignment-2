@@ -375,21 +375,6 @@ namespace Conflict_UnitTests
 
 			}
 
-			// Added the Attack here (laura) this comment can be removed
-			TEST_METHOD(TestAttack)
-			{
-				//Act
-				Orc orcs("Jon", 100, 50, 75, CharacterState::Idle, 80, 100);
-				Brawler brawl("Ben", 100, 35, 50, CharacterState::Idle, 65, 90);
-				int expectedState = CharacterState::Defending;
-
-				// Arrange
-				orcs.Attack(brawl);
-				int actualState = brawl.GetState();
-
-				// Change state to defending the attack (brawl should be defending the orcs attack?
-				Assert::AreEqual(expectedState, actualState);
-			}
 	};
 }
 
@@ -602,6 +587,73 @@ namespace Inventory_UnitTests
 
 				//Assert
 				Assert::AreNotEqual(unexpectedArmourName, actualArmourName);
+			}
+
+			TEST_METHOD(TestEquipWeapon)
+			{
+				//Act 
+				Brawler brawler{ "Brian", 50, 75, 55, CharacterState::Idle, 75, 90 };
+				Weapon sword{ "sword", 100, 25.0f, 50, 100 };
+				Weapon spear{ "spear", 100, 20.0f, 25, 100 };
+				Weapon bow{ "bow", 100, 10.0f, 12, 100 };
+				int expectedWeapon = 2;
+
+				//Arrange
+				brawler.PickUpWeapon(sword);
+				brawler.PickUpWeapon(spear);
+				brawler.PickUpWeapon(bow);
+				
+				brawler.EquipWeapon(1);
+				int actualWeapon = brawler.GetEquippedWeapon();
+				brawler.EquipWeapon(0);
+				actualWeapon = brawler.GetEquippedWeapon();
+				brawler.EquipWeapon(2);
+				actualWeapon = brawler.GetEquippedWeapon();
+
+				//Assert
+				Assert::AreEqual(expectedWeapon, actualWeapon);
+			}
+
+			TEST_METHOD(TestAddFood) 
+			{
+				//Arrange
+				Brawler brawler{ "Mike", 100, 120, 5, CharacterState::Idle, 60, 80 };
+				brawler.AddFood(1);
+
+				//Act
+				int expectedFoodAmount = 6;
+				int actualFood = brawler.GetFood();
+
+				//Assert
+				Assert::AreEqual(expectedFoodAmount, actualFood);
+			}
+
+			TEST_METHOD(TestRun)
+			{
+				//Arrange
+				Brawler brawler{ "BigJim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+				int expectedState{ 1 };
+
+				//Act
+				brawler.Run();
+				int actualState = brawler.GetState();
+
+				//Assert
+				Assert::AreEqual(expectedState, actualState);
+			}
+
+			TEST_METHOD(TestWalk)
+			{
+				//Arrange
+				Brawler brawler{ "BigJim", 100, 120, 50, CharacterState::Idle, 60, 80 };
+				int expectedState{ 3 };
+
+				//Act
+				brawler.Walk();
+				int actualState = brawler.GetState();
+
+				//Assert
+				Assert::AreEqual(expectedState, actualState);
 			}
 	};
 }
