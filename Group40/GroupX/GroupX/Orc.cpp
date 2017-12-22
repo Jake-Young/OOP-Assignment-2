@@ -42,6 +42,10 @@ bool Orc::Attack(GameCharacter & character)
 
 	//check if the character can attack
 	int weaponIndex = this->GetEquippedWeapon();
+
+	//set calling character state to idle
+	this->SetState(CharacterState::Idle);
+
 	if (weaponIndex >= 0 && this->GetHealth() > 20 && character.GetState() != CharacterState::Dead)
 	{
 		//can attack
@@ -108,21 +112,20 @@ bool Orc::Attack(GameCharacter & character)
 			character.SetHealth(damageToApply);
 
 			//reduce defender armour by 10% and remove it if it falls to or below 0
-			int defArmourHealth = defenderArmour->GetArmourHealth();
-			int defArmourDamage = defArmourHealth - ((defArmourHealth / 100) * 10);
-			defenderArmour->SetArmourHealth(defArmourDamage);
-
-			if (defenderArmour->GetArmourHealth() <= 0)
+			if (defArmourIndex >= 0)
 			{
-				character.RemoveArmour(defArmourIndex);
-				defenderArmour->~Armour();
+				int defArmourHealth = defenderArmour->GetArmourHealth();
+				int defArmourDamage = defArmourHealth - ((defArmourHealth / 100) * 10);
+				defenderArmour->SetArmourHealth(defArmourDamage);
+
+				if (defenderArmour->GetArmourHealth() <= 0)
+				{
+					character.RemoveArmour(defArmourIndex);
+					defenderArmour->~Armour();
+				}
 			}
 
-			//free memory and return true
-			//delete attackerWeapon;
-			//delete defenderArmour;
-			attackerWeapon = nullptr;
-			defenderArmour = nullptr;
+			//return true
 			return true;
 		}
 		else
@@ -145,11 +148,7 @@ bool Orc::Attack(GameCharacter & character)
 				}
 			}
 
-			//free memory and return false
-			//delete attackerWeapon;
-			//delete defenderArmour;
-			attackerWeapon = nullptr;
-			defenderArmour = nullptr;
+			//return false
 			return false;
 		}
 	}
