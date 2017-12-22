@@ -56,7 +56,7 @@ bool BlackWitch::Attack(GameCharacter &character)
 		//chances of successful hit
 		int successfulHitChance = 0;
 		int weaponHitStr = attackerWeapon->GetWeaponHitStrength();
-		int armourDefence = defenderArmour->GetDefence();
+		int armourDefence = defArmourIndex >= 0 ? defenderArmour->GetDefence() : 0;
 
 		if (defArmourIndex < 0)
 		{
@@ -74,7 +74,7 @@ bool BlackWitch::Attack(GameCharacter &character)
 		//is the attack a success?
 		int rng = this->GetRandomNumber(1, 100);
 
-		if (successfulHitChance <= rng)
+		if (successfulHitChance >= rng)
 		{
 			//successful attack
 			float attackPower = 0;
@@ -114,7 +114,8 @@ bool BlackWitch::Attack(GameCharacter &character)
 			{
 				int defArmourHealth = defenderArmour->GetArmourHealth();
 				int defArmourDamage = defArmourHealth - ((defArmourHealth / 100) * 10);
-				defenderArmour->SetArmourHealth(defArmourDamage);
+				character.GetArmour(defArmourIndex).SetArmourHealth(defArmourDamage);
+				//defenderArmour->SetArmourHealth(defArmourDamage);
 
 				if (defenderArmour->GetArmourHealth() <= 0)
 				{
@@ -136,7 +137,8 @@ bool BlackWitch::Attack(GameCharacter &character)
 				int weaponHealthReduce = this->GetRandomNumber(10, 20);
 				int weaponHealth = attackerWeapon->GetWeaponHealth();
 				int newWeaponHealth = weaponHealth - ((weaponHealth / 100) * weaponHealthReduce);
-				attackerWeapon->SetWeaponHealth(newWeaponHealth);
+				this->GetWeapon(weaponIndex).SetWeaponHealth(newWeaponHealth);
+				//attackerWeapon->SetWeaponHealth(newWeaponHealth);
 
 				//remove weapon if health is below 0
 				if (attackerWeapon->GetWeaponHealth() <= 0)

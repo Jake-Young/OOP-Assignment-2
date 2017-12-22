@@ -390,6 +390,49 @@ namespace Conflict_UnitTests
 				Assert::AreEqual(expectedState, actualState);
 			}
 
+			TEST_METHOD(MainCopy)
+			{
+				//Initialise - characters
+				Brawler brawler{ "Jim", 100, 500, 50, CharacterState::Idle, 15, 30 };
+				Cleric cleric{ "Bob", 100, 500, 50, CharacterState::Idle, 45 };
+				Orc orc{ "Simon", 100, 500, 50, CharacterState::Idle, 40, 50 };
+				BlackWitch witch{ "Sheela", 100, 500, 50, CharacterState::Idle, 40, 55 };
+
+				//Initialise - items
+				Armour lightHelmet{ "Helmet of Feathers", 15, 5.0f, 20, 8, ArmourType::Leather };
+				Armour heavyHelmet{ "Helmet of Stone", 25, 62.5f, 40, 10, ArmourType::Steel };
+				Armour damagedChestPiece{ "Cardboard Chest", 5, 2.5f, 5, 4, ArmourType::CardBoard };
+				Armour SturdyLegs{ "Wood Leg Armour", 10, 12.5f, 10, 6, ArmourType::Wood };
+				Armour legendaryArms{ "Arms of the Guilded Wing", 120, 35.0f, 40, 12, ArmourType::Steel };
+
+				Weapon spear{ "spear", 15, 25, 100, 6 };
+				Weapon bow{ "bow", 15, 25, 100, 3 };
+				Weapon sword{ "sword", 15, 25, 100, 5 };
+				Weapon legendaryStaff{ "Merlin's Staff", 20, 15, 110, 8 };
+
+				//Assign Items
+				//Brawler
+				brawler.PickUpArmour(heavyHelmet);
+				brawler.PickUpArmour(legendaryArms);
+				brawler.PickUpWeapon(sword);
+
+				//Cleric
+				cleric.PickUpArmour(lightHelmet);
+				cleric.PickUpWeapon(legendaryStaff);
+
+				//Orc
+				orc.PickUpArmour(SturdyLegs);
+				orc.PickUpWeapon(spear);
+
+				//Witch
+				witch.PickUpArmour(damagedChestPiece);
+				witch.PickUpWeapon(bow);
+
+				cleric.Defend(0);
+				witch.EquipWeapon(0);
+				witch.Attack(cleric);
+			}
+
 	};
 }
 

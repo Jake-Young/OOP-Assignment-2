@@ -1,6 +1,8 @@
-﻿  GameCharacter.cpp
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\gamecharacter.cpp(313): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-  Cleric.cpp
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\cleric.cpp(114): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Orc.cpp
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\orc.cpp(103): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Brawler.cpp
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\brawler.cpp(106): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\niall\documents\software development\year 2\oo programming\oop-assignment-2\group40\groupx\groupx\brawler.cpp(224): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  BlackWitch.cpp
   Generating Code...
-  GroupX.vcxproj -> C:\Users\Niall\Desktop\Jake's Stuff\GitHub\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe
+  GroupX.vcxproj -> C:\Users\Niall\Documents\Software Development\Year 2\OO Programming\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe

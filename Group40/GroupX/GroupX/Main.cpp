@@ -141,6 +141,5 @@ int main() {
 	witch.Sleep();
 
 	cout << "Witch's health after sleep: " << witch.GetHealth() << endl; 
-
 	return 0;
 }
