@@ -375,21 +375,6 @@ namespace Conflict_UnitTests
 
 			}
 
-			// Added the Attack here (laura) this comment can be removed
-			TEST_METHOD(TestAttack)
-			{
-				//Act
-				Orc orcs("Jon", 100, 50, 75, CharacterState::Idle, 80, 100);
-				Brawler brawl("Ben", 100, 35, 50, CharacterState::Idle, 65, 90);
-				int expectedState = CharacterState::Defending;
-
-				// Arrange
-				orcs.Attack(brawl);
-				int actualState = brawl.GetState();
-
-				// Change state to defending the attack (brawl should be defending the orcs attack?
-				Assert::AreEqual(expectedState, actualState);
-			}
 	};
 }
 

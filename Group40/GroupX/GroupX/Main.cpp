@@ -75,7 +75,7 @@ int main() {
 	cout << "Cleric's health before: " << cleric.GetHealth() << endl;
 	cout << "Cleric's armour health before attack: " << cleric.GetArmour(0).GetArmourHealth() << endl;
 	witch.Attack(cleric);
-	cout << "Cleric's health after cleric attack with \"legendaryStaff\": " << cleric.GetHealth() << endl;
+	cout << "Cleric's health after cleric attack with \"bow\": " << cleric.GetHealth() << endl;
 	cout << "Cleric's armour after attack: " << cleric.GetArmour(0).GetArmourHealth() << endl;
 	cout << "Cleric's character state: " << cleric.GetState() << endl; //Should be defending
 
