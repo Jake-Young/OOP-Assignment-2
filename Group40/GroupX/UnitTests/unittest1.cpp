@@ -375,6 +375,21 @@ namespace Conflict_UnitTests
 
 			}
 
+			TEST_METHOD(brawlerthing)
+			{
+				Brawler brawler{ "Jim", 100, 100, 50, CharacterState::Idle, 15, 30 };
+				Orc orc{ "Simon", 100, 125, 50, CharacterState::Idle, 40, 50 };
+				Weapon spear{ "spear", 15, 25, 100, 6 };
+				int expectedState{ 4 };
+
+				brawler.PickUpWeapon(spear);
+				brawler.EquipWeapon(0);
+				brawler.Attack(orc);
+				int actualState = orc.GetState();
+
+				Assert::AreEqual(expectedState, actualState);
+			}
+
 	};
 }
 
