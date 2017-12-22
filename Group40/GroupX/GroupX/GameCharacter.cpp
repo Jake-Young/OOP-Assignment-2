@@ -260,7 +260,7 @@ void GameCharacter::DropWeapon(Weapon &weapon)
 
 bool GameCharacter::EquipWeapon(int weapon)
 {
-	if (weapon >= -1 && weapon < weapons_.size())
+	if (weapon >= 0 && weapon < weapons_.size())
 	{
 		equippedWeapon_ = weapon;
 		return true;

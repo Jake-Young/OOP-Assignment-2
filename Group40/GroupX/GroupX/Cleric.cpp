@@ -111,7 +111,11 @@ void Cleric::PrayFor(GameCharacter &character)
 
 	if (chance >= 50)
 	{
-		SetHealth(GetHealth() + 5 * pietyLevel_);
+		character.SetHealth(character.GetHealth() + (0.05 * pietyLevel_));
+		if (character.GetHealth() > 100)
+		{
+			character.SetHealth(100);
+		}
 	}
 }
 

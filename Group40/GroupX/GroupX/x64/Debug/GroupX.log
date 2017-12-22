@@ -1,2 +1,6 @@
-﻿  Main.cpp
-  GroupX.vcxproj -> C:\Users\Niall\Documents\Software Development\Year 2\OO Programming\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe
+﻿  GameCharacter.cpp
+c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\gamecharacter.cpp(313): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+  Cleric.cpp
+c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\cleric.cpp(114): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  GroupX.vcxproj -> C:\Users\Niall\Desktop\Jake's Stuff\GitHub\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe

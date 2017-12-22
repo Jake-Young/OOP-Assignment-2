@@ -152,6 +152,8 @@ bool Brawler::Attack(GameCharacter &character)
 			}
 
 			//return false
+			attackerWeapon = nullptr;
+			defenderArmour = nullptr;
 			return false;
 		}
 	}

@@ -23,10 +23,10 @@ int main() {
 	//Test of attack functions
 
 	//Initialise - characters
-	Brawler brawler{ "Jim", 100, 100, 50, CharacterState::Idle, 15, 30 };
-	Cleric cleric{ "Bob", 100, 75, 50, CharacterState::Idle, 45 };
-	Orc orc{ "Simon", 100, 125, 50, CharacterState::Idle, 40, 50 };
-	BlackWitch witch{ "Sheela", 100, 75, 50, CharacterState::Idle, 40, 55 };
+	Brawler brawler{ "Jim", 100, 500, 50, CharacterState::Idle, 15, 30 };
+	Cleric cleric{ "Bob", 100, 500, 50, CharacterState::Idle, 45 };
+	Orc orc{ "Simon", 100, 500, 50, CharacterState::Idle, 40, 50 };
+	BlackWitch witch{ "Sheela", 100, 500, 50, CharacterState::Idle, 40, 55 };
 
 	//Initialise - items
 	Armour lightHelmet{ "Helmet of Feathers", 15, 5.0f, 20, 8, ArmourType::Leather };
@@ -110,6 +110,7 @@ int main() {
 
 	//Test 5 - Brawler attacks Orc with weapon equipped
 	cout << "Test 5: " << endl << endl;
+	orc.Defend(0);
 	brawler.EquipWeapon(0);
 	cout << "Orc's health before: " << orc.GetHealth() << endl; //Should be 100
 	cout << "Orc's armour health before attack: " << orc.GetArmour(0).GetArmourHealth() << endl;
@@ -117,12 +118,13 @@ int main() {
 	brawler.Attack(orc);
 	cout << "Orc's health after brawler attack with \"sword\": " << orc.GetHealth() << endl; //Should be less than initial health
 	cout << "Orc's armour after attack: " << orc.GetArmour(0).GetArmourHealth() << endl; //Should be less than initial armour health
-	cout << "Brawler's weapon health after attackL " << brawler.GetWeapon(0).GetWeaponHealth() << endl;
+	cout << "Brawler's weapon health after attack: " << brawler.GetWeapon(0).GetWeaponHealth() << endl;
 	cout << "Orc's character state: " << orc.GetState() << endl << endl; //Should be defending
 
 	//Test 6 - Cleric heals orc
 	cout << "Test 6: " << endl << endl;
-	cout << "Orc's health after cleric heal: " << orc.GetHealth() << endl; //Should be 
+	cleric.PrayFor(orc);
+	cout << "Orc's health after cleric heal: " << orc.GetHealth() << endl << endl; //Should be 
 
 	//Test 7 - Witch bewitchs everyone but herself (Puts characters to sleep, character state 2) 
 	cout << "Test 7: " << endl << endl;
