@@ -1,15 +1,2 @@
-﻿  Weapon.cpp
-  Orc.cpp
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\orc.cpp(99): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  Main.cpp
-  item.cpp
-  GameCharacter.cpp
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\gamecharacter.cpp(313): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-  Cleric.cpp
-  Brawler.cpp
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\brawler.cpp(102): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  BlackWitch.cpp
-  Armour.cpp
-  Generating Code...
-c:\users\niall\desktop\jake's stuff\github\oop-assignment-2\group40\groupx\groupx\brawler.cpp(247): warning C4715: 'Brawler::Brawl': not all control paths return a value
+﻿  Main.cpp
   GroupX.vcxproj -> C:\Users\Niall\Desktop\Jake's Stuff\GitHub\OOP-Assignment-2\Group40\GroupX\x64\Debug\GroupX.exe
